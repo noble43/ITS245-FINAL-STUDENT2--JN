@@ -13,8 +13,7 @@ namespace DataAdapterEx.DBUtils
     {
         public static MySqlConnection MakeConnection()
         {
-            string connStr = "server=127.0.0.1;user=root;" +
-                "database=ehr;port=3306;password=password";
+            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             return conn;
