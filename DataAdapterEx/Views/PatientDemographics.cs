@@ -24,7 +24,7 @@ namespace DataAdapterEx.Views
             InitializeComponent();
 
             MySqlConnection conn = DBUtilsPatient.MakeConnection();
-            dt = DBUtilsPatient.GetPatientById(conn, GlobalData.PID);
+            dt = DBUtilsPatient.GetPatientById(conn, GlobalData.CurrentPatientID);
             PopulateFieldsWithDBInfo();
             LockControls();
         }
@@ -139,5 +139,9 @@ namespace DataAdapterEx.Views
             tb_Age.Text = "";
         }
 
+        private void PatientDemographics_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace DataAdapterEx.Views
         private void Allergies_Load(object sender, EventArgs e)
         {
             MySqlConnection conn = DBUtilsPatient.MakeConnection();
-            dt = DBUtilsAllergies.GetAllergiesById(conn, GlobalData.PID);
+            dt = DBUtilsAllergies.GetAllergiesById(conn, GlobalData.CurrentPatientID);
             PopulateFieldsWithDBInfo();
             dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;

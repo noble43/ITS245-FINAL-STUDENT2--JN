@@ -37,7 +37,7 @@ namespace DataAdapterEx.Views
             {
                 try
                 {
-                    conn.Open();
+                    
                     dt = DBUtilsLogin.AuthenticateUser(conn, username, password);
 
                     if (dt.Rows.Count == 1)
@@ -52,8 +52,8 @@ namespace DataAdapterEx.Views
                         MessageBox.Show("Login successful!");
 
                         // Open main Select Patient form
-                        Form form = new Form1(this);
-                        form.Show();
+                        Form f = new Form1(this);
+                        f.Show();
                         this.Hide();
                     }
                     else

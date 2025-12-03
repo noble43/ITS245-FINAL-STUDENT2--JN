@@ -23,7 +23,7 @@ namespace DataAdapterEx
         }
         public Form1(Form f)
         {
-            f.Close();
+            f.Hide();
             InitializeComponent();
         }
 
@@ -65,12 +65,12 @@ namespace DataAdapterEx
             int rowIndex = dataGridView1.CurrentCell.RowIndex;
             lbl_PID.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
             lbl_lastName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
-            GlobalData.PID = Convert.ToInt32(lbl_PID.Text);
+            GlobalData.CurrentPatientID = Convert.ToInt32(lbl_PID.Text);
         }
 
         private void btn_ShowGlobalPID_Click(object sender, EventArgs e)
         {
-            lbl_GlobalPID.Text = GlobalData.PID.ToString();
+            lbl_GlobalPID.Text = GlobalData.CurrentPatientID.ToString();
         }
 
         private void btn_PtDemog_Click(object sender, EventArgs e)
