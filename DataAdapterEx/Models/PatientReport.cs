@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DataAdapterEx.Models
 {
@@ -120,13 +122,44 @@ namespace DataAdapterEx.Models
                     reportContent += $"Report created by: {createdByUsername}\n";
                     reportContent += $"Report created on: {DateTime.Now}\n";
 
-                    // Save the report to a text file
+                    // Define the report file name
                     string fileName = $"PatientReport_{patientID}_{DateTime.Now:yyyyMMddHHmmss}.txt";
-                    string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
 
+                    // Get the folder where the executable is running (bin folder)
+                    string exeFolder = Application.StartupPath;
+
+                    // Go up to the project root folder if running in Visual Studio (Debug/Release)
+                    // This handles the typical structure: bin\Debug\netX.X or bin\Release\netX.X
+                    string projectFolder = Path.GetFullPath(Path.Combine(exeFolder, @"..\..\.."));
+
+                    // Define the Reports folder inside the project root
+                    string reportsFolder = Path.Combine(projectFolder, "Reports");
+
+                    // Create the folder if it doesn't exist
+                    if (!Directory.Exists(reportsFolder))
+                    {
+                        Directory.CreateDirectory(reportsFolder);
+                    }
+
+                    // Full path to the report file
+                    string filePath = Path.Combine(reportsFolder, fileName);
+
+                    // Save the report
                     File.WriteAllText(filePath, reportContent);
 
-                    Console.WriteLine($"Report generated successfully at: {filePath}");
+                    // Open the report automatically
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = filePath,
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Could not open the report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
