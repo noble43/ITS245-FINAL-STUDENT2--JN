@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAdapterEx.DBUtils
 {
-    public static class DBUtilsGeneralMedicalHistory
+    public static class DBUtilsMedicationHistory
     {
-        // ✅ SAME connection format as DBUtilsPatient
+        // ✅ SAME connection format
         public static MySqlConnection MakeConnection()
         {
             string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
@@ -20,12 +19,12 @@ namespace DataAdapterEx.DBUtils
             return conn;
         }
 
-        // ✅ SAME DataTable + Adapter Pattern
+        // ✅ SAME DataAdapter → DataTable workflow
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
-                "SELECT GeneralMedicalHistoryID, MaritalStatus, Education, BehavioralHistory " +
-                "FROM generalmedicalhistory " +
+                "SELECT MedicationID, Medication, MedicationAmt, MedicationUnit " +
+                "FROM patientmedications " +
                 "WHERE PatientID=@pid AND deleted=false";
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
@@ -36,33 +35,35 @@ namespace DataAdapterEx.DBUtils
             return dt;
         }
 
-        // ✅ INSERT (non–stored procedure)
-        public static void InsertHistory(
+        // ✅ INSERT record
+        public static void InsertMedication(
             MySqlConnection conn,
             int patientId,
-            string maritalStatus,
-            string education,
-            string behavioralHistory)
+            string medication,
+            string amount,
+            string unit,
+            string instructions)
         {
             string sql =
-                "INSERT INTO generalmedicalhistory " +
-                "(PatientID, MaritalStatus, Education, BehavioralHistory) " +
-                "VALUES (@pid, @ms, @edu, @bh)";
+                "INSERT INTO patientmedications " +
+                "(PatientID, Medication, MedicationAmt, MedicationUnit, Instructions) " +
+                "VALUES (@pid, @med, @amt, @unit, @inst)";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@pid", patientId);
-            cmd.Parameters.AddWithValue("@ms", maritalStatus);
-            cmd.Parameters.AddWithValue("@edu", education);
-            cmd.Parameters.AddWithValue("@bh", behavioralHistory);
+            cmd.Parameters.AddWithValue("@med", medication);
+            cmd.Parameters.AddWithValue("@amt", amount);
+            cmd.Parameters.AddWithValue("@unit", unit);
+            cmd.Parameters.AddWithValue("@inst", instructions);
             cmd.ExecuteNonQuery();
         }
 
-        // ✅ SOFT DELETE (matches your project rule)
-        public static void DeleteHistory(MySqlConnection conn, int id)
+        // ✅ SOFT DELETE
+        public static void DeleteMedication(MySqlConnection conn, int id)
         {
             string sql =
-                "UPDATE generalmedicalhistory SET deleted=true " +
-                "WHERE GeneralMedicalHistoryID=@id";
+                "UPDATE patientmedications SET deleted=true " +
+                "WHERE MedicationID=@id";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@id", id);
