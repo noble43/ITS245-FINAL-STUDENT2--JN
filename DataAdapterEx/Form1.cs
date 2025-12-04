@@ -81,8 +81,24 @@ namespace DataAdapterEx
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Views.Allergies(this);
-            form.Show();
+            if (GlobalData.CurrentPatientID > 0)
+            {
+                string username = GlobalData.LoggedInUserName; // Grab the logged-in username
+                PatientReport report = new PatientReport();
+                report.GenerateReport(GlobalData.CurrentPatientID, username);
+                MessageBox.Show("Patient report generated!");
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient first.");
+            }
         }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Views.Allergies(this);
+        //    form.Show();
+        //}
+
     }
 }

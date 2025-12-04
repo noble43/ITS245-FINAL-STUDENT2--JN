@@ -24,7 +24,7 @@ namespace DataAdapterEx.Views
             InitializeComponent();
 
             MySqlConnection conn = DBUtilsPatient.MakeConnection();
-            dt = DBUtilsPatient.GetPatientById(conn, GlobalData.CurrentPatientID);
+            dt = DBUtilsPatient.GetPatientByIdSP(conn, GlobalData.CurrentPatientID);
             PopulateFieldsWithDBInfo();
             LockControls();
         }

@@ -109,7 +109,7 @@
     </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\ReportGenerator.cs" />
+    <Compile Include="Models\PatientReport.cs" />
     <Compile Include="Views\Allergies.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,12 +142,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\PatientReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PatientReport.Designer.cs">
-      <DependentUpon>PatientReport.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDemographics.resx">
       <DependentUpon>PatientDemographics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PatientReport.resx">
-      <DependentUpon>PatientReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
