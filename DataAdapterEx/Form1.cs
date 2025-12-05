@@ -136,7 +136,6 @@ namespace DataAdapterEx
                 string username = GlobalData.LoggedInUserName; // Grab the logged-in username
                 PatientReport report = new PatientReport();
                 report.GenerateReport(GlobalData.CurrentPatientID, username);
-                MessageBox.Show("Patient report generated!");
             }
             else
             {

@@ -122,44 +122,39 @@ namespace DataAdapterEx.Models
                     reportContent += $"Report created by: {createdByUsername}\n";
                     reportContent += $"Report created on: {DateTime.Now}\n";
 
-                    // Define the report file name
-                    string fileName = $"PatientReport_{patientID}_{DateTime.Now:yyyyMMddHHmmss}.txt";
-
-                    // Get the folder where the executable is running (bin folder)
+                    // Current EXE folder → bin\Debug
                     string exeFolder = Application.StartupPath;
 
-                    // Go up to the project root folder if running in Visual Studio (Debug/Release)
-                    // This handles the typical structure: bin\Debug\netX.X or bin\Release\netX.X
-                    string projectFolder = Path.GetFullPath(Path.Combine(exeFolder, @"..\..\.."));
+                    // Create Reports folder inside bin\Debug
+                    string reportsFolder = Path.Combine(exeFolder, "Reports");
 
-                    // Define the Reports folder inside the project root
-                    string reportsFolder = Path.Combine(projectFolder, "Reports");
-
-                    // Create the folder if it doesn't exist
                     if (!Directory.Exists(reportsFolder))
                     {
                         Directory.CreateDirectory(reportsFolder);
                     }
 
-                    // Full path to the report file
+                    // Unique file name
+                    string fileName = $"PatientReport_{patientID}_{DateTime.Now:yyyyMMddHHmmss}.txt";
                     string filePath = Path.Combine(reportsFolder, fileName);
 
-                    // Save the report
-                    File.WriteAllText(filePath, reportContent);
+                    // ✅ Write file
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.Write(reportContent);
+                    }
 
-                    // Open the report automatically
+                    // ✅ Open the file automatically
                     try
                     {
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = filePath,
-                            UseShellExecute = true
-                        });
+                        Process.Start(filePath);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Could not open the report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
+                    // ✅ Confirm
+                    MessageBox.Show($"Report saved to:\n{filePath}", "Report Created");
                 }
             }
             catch (Exception ex)
