@@ -15,7 +15,7 @@ namespace DataAdapterEx.Views
     public partial class Allergies : Form
     {
         DataTable dt;
-        int FormMode = 0; // 0 - View, 1 - Add, 2 - Edit    
+        //int FormMode = 0; // 0 - View, 1 - Add, 2 - Edit    
         public Allergies()
         {
             InitializeComponent();
@@ -61,12 +61,12 @@ namespace DataAdapterEx.Views
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             //UnLockControls();
-            FormMode = 2;  // edit mode
+            //FormMode = 2;  // edit mode
         }
 
         private void btn_New_Click(object sender, EventArgs e)
         {
-            FormMode = 1;
+            //FormMode = 1;
             //UnLockControls();
             //ClearData();
         }

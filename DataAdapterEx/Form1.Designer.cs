@@ -45,7 +45,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(50, 40);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -57,7 +57,7 @@
             // 
             this.btn_RetrievePatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RetrievePatients.Location = new System.Drawing.Point(50, 287);
-            this.btn_RetrievePatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_RetrievePatients.Margin = new System.Windows.Forms.Padding(2);
             this.btn_RetrievePatients.Name = "btn_RetrievePatients";
             this.btn_RetrievePatients.Size = new System.Drawing.Size(262, 43);
             this.btn_RetrievePatients.TabIndex = 1;
@@ -87,7 +87,7 @@
             // btn_ShowGlobalPID
             // 
             this.btn_ShowGlobalPID.Location = new System.Drawing.Point(50, 338);
-            this.btn_ShowGlobalPID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ShowGlobalPID.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ShowGlobalPID.Name = "btn_ShowGlobalPID";
             this.btn_ShowGlobalPID.Size = new System.Drawing.Size(262, 33);
             this.btn_ShowGlobalPID.TabIndex = 4;
@@ -110,7 +110,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_PtDemog);
             this.panel1.Location = new System.Drawing.Point(580, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(163, 313);
             this.panel1.TabIndex = 6;
@@ -118,7 +118,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(21, 102);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 32);
             this.button1.TabIndex = 1;
@@ -130,7 +130,7 @@
             // 
             this.btn_PtDemog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PtDemog.Location = new System.Drawing.Point(18, 35);
-            this.btn_PtDemog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_PtDemog.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PtDemog.Name = "btn_PtDemog";
             this.btn_PtDemog.Size = new System.Drawing.Size(125, 40);
             this.btn_PtDemog.TabIndex = 0;
@@ -150,7 +150,7 @@
             this.Controls.Add(this.lbl_PID);
             this.Controls.Add(this.btn_RetrievePatients);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

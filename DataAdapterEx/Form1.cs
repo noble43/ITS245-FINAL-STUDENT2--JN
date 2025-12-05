@@ -69,6 +69,7 @@ namespace DataAdapterEx
                 // Get PtHomePhone from the clicked row
                 string homePhone = dataGridView1.Rows[rowIndex].Cells["PtHomePhone"].Value?.ToString();
                 string lastNameFromGrid = dataGridView1.Rows[rowIndex].Cells["PtLastName"].Value?.ToString();
+                string firstNameFromGrid = dataGridView1.Rows[rowIndex].Cells["PtFirstName"].Value?.ToString();
 
                 if (!string.IsNullOrEmpty(homePhone))
                 {
@@ -88,12 +89,12 @@ namespace DataAdapterEx
                                     if (reader.Read())
                                     {
                                         int patientID = reader.GetInt32("PatientID");
-                                        string lastName = reader.GetString("PtLastName");
 
                                         // Update global variable and labels
                                         GlobalData.CurrentPatientID = patientID;
+                                        GlobalData.CurrentPatientName = firstNameFromGrid + " " + lastNameFromGrid;
                                         lbl_PID.Text = patientID.ToString();
-                                        lbl_lastName.Text = lastName;
+                                        lbl_lastName.Text = lastNameFromGrid;
                                     }
                                     else
                                     {
@@ -125,7 +126,7 @@ namespace DataAdapterEx
 
         private void btn_PtDemog_Click(object sender, EventArgs e)
         {
-            Form form = new Views.PatientDemographics(this);
+            Form form = new Views.GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientName);
             form.Show();
         }
 
@@ -136,6 +137,7 @@ namespace DataAdapterEx
                 string username = GlobalData.LoggedInUserName; // Grab the logged-in username
                 PatientReport report = new PatientReport();
                 report.GenerateReport(GlobalData.CurrentPatientID, username);
+
             }
             else
             {
