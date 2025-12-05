@@ -50,7 +50,7 @@ namespace DataAdapterEx.Models
                     reader.Close();
 
                     // Retrieve patient medical history
-                    string historyQuery = @"SELECT * FROM patientmedicalhistory WHERE PatientID = @PatientID";
+                    string historyQuery = @"SELECT * FROM generalmedicalhistory WHERE PatientID = @PatientID";
                     MySqlCommand cmdHistory = new MySqlCommand(historyQuery, conn);
                     cmdHistory.Parameters.AddWithValue("@PatientID", patientID);
 
@@ -59,10 +59,17 @@ namespace DataAdapterEx.Models
                     string medicalHistoryText = "";
                     while (historyReader.Read())
                     {
-                        medicalHistoryText += $"Condition: {historyReader["Condition"]}\n";
-                        medicalHistoryText += $"Date Diagnosed: {historyReader["DateDiagnosed"]}\n";
-                        medicalHistoryText += $"Notes: {historyReader["Notes"]}\n";
-                        medicalHistoryText += "----------------------\n";
+                        while (historyReader.Read())
+                        {
+                            medicalHistoryText += $"Tobacco: {historyReader["Tobacco"]}\n";
+                            medicalHistoryText += $"Alcohol: {historyReader["Alcohol"]}\n";
+                            medicalHistoryText += $"Drug Use: {historyReader["Drug"]}\n";
+                            medicalHistoryText += $"Dietary: {historyReader["Dietary"]}\n";
+                            medicalHistoryText += $"Blood Type: {historyReader["BloodType"]}\n";
+                            medicalHistoryText += $"Notes: {historyReader["MedicalHistoryNotes"]}\n";
+                            medicalHistoryText += "----------------------\n";
+                        }
+
                     }
                     historyReader.Close();
 
@@ -76,15 +83,15 @@ namespace DataAdapterEx.Models
                     string immunizationsText = "";
                     while (immunizationReader.Read())
                     {
-                        immunizationsText += $"Vaccine: {immunizationReader["VaccineName"]}\n";
-                        immunizationsText += $"Date Administered: {immunizationReader["DateAdministered"]}\n";
-                        immunizationsText += $"Notes: {immunizationReader["Notes"]}\n";
+                        immunizationsText += $"Vaccine: {immunizationReader["Vaccine"]}\n";
+                        immunizationsText += $"Date: {immunizationReader["ImmunizationDate"]}\n";
+                        immunizationsText += $"Comments: {immunizationReader["Comments"]}\n";
                         immunizationsText += "----------------------\n";
                     }
                     immunizationReader.Close();
 
                     // Retrieve medication history
-                    string medicationQuery = @"SELECT * FROM medicationhistorytable WHERE PatientID = @PatientID";
+                    string medicationQuery = @"SELECT * FROM patientmedications WHERE PatientID = @PatientID";
                     MySqlCommand cmdMedication = new MySqlCommand(medicationQuery, conn);
                     cmdMedication.Parameters.AddWithValue("@PatientID", patientID);
 
@@ -93,12 +100,12 @@ namespace DataAdapterEx.Models
                     string medicationText = "";
                     while (medicationReader.Read())
                     {
-                        medicationText += $"Medication: {medicationReader["MedicationName"]}\n";
-                        medicationText += $"Dosage: {medicationReader["Dosage"]}\n";
-                        medicationText += $"Frequency: {medicationReader["Frequency"]}\n";
-                        medicationText += $"Start Date: {medicationReader["StartDate"]}\n";
-                        medicationText += $"End Date: {medicationReader["EndDate"]}\n";
-                        medicationText += $"Notes: {medicationReader["Notes"]}\n";
+                        medicationText += $"Medication: {medicationReader["Medication"]}\n";
+                        medicationText += $"Amount: {medicationReader["MedicationAmt"]}\n";
+                        medicationText += $"Unit: {medicationReader["MedicationUnit"]}\n";
+                        medicationText += $"Start Date: {medicationReader["MedicationStartDate"]}\n";
+                        medicationText += $"End Date: {medicationReader["MedicationEndDate"]}\n";
+                        medicationText += $"Instructions: {medicationReader["Instructions"]}\n";
                         medicationText += "----------------------\n";
                     }
                     medicationReader.Close();
@@ -159,7 +166,9 @@ namespace DataAdapterEx.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error generating report: " + ex.Message);
+                MessageBox.Show(
+                    "❌ ERROR generating report:\n\n" + ex.Message,"Report Failure", MessageBoxButtons.OK, MessageBoxIcon.Error
+                );
             }
         }
     }
