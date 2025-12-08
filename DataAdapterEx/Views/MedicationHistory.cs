@@ -143,5 +143,32 @@ namespace DataAdapterEx.Views
             txtUnit.Clear();
             txtInstructions.Clear();
         }
+
+        // =========================
+        // NAVIGATION
+        // =========================
+        private void btnSelectPatient_Click(object sender, EventArgs e)
+        {
+            Form form = new Form1(this);
+            this.Hide();
+        }
+
+        private void btnImmunizations_Click(object sender, EventArgs e)
+        {
+            Form form = new Form1(this);
+            this.Hide();
+        }
+
+        private void btnMedications_Click(object sender, EventArgs e)
+        {
+            Form form = new Form1(this);
+            this.Hide();
+        }
+
+        private void btnDemographics_Click(object sender, EventArgs e)
+        {
+            Form form = new Form1(this);
+            this.Hide();
+        }
     }
 }
