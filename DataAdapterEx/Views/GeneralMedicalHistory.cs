@@ -22,7 +22,7 @@ namespace DataAdapterEx.Views
         {
             InitializeComponent();
             _patientId = patientId;
-            lblPatientHeader.Text = $"General Medical History - {patientName}";
+            lblPatientHeader.Text = $"{patientName} | Age: XX ";
             SetEditMode(false);
         }
 
@@ -252,6 +252,7 @@ namespace DataAdapterEx.Views
         }
         private void btnPatientIDSelect_Click(object sender, EventArgs e)
         {
+            if 
             LoadHistory();
         }
 
@@ -263,5 +264,23 @@ namespace DataAdapterEx.Views
             Form form = new Form1(this);
             this.Hide();
         }
+
+        //private void btnImmunizations_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form1(this);
+        //    this.Hide();
+        //}
+
+        //private void btnMedications_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form1(this);
+        //    this.Hide();
+        //}
+
+        //private void btnDemographics_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form1(this);
+        //    this.Hide();
+        //}
     }
 }
