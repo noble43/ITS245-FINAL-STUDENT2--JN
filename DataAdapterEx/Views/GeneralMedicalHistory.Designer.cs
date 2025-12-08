@@ -89,6 +89,31 @@
             this.btnDemographics = new System.Windows.Forms.Button();
             this.btnImmunizations = new System.Windows.Forms.Button();
             this.btnMedications = new System.Windows.Forms.Button();
+            this.lblMaritalStatus = new System.Windows.Forms.Label();
+            this.lblEducation = new System.Windows.Forms.Label();
+            this.lblBehavioral = new System.Windows.Forms.Label();
+            this.lblTobacco = new System.Windows.Forms.Label();
+            this.lblTobaccoQty = new System.Windows.Forms.Label();
+            this.lblTobaccoDur = new System.Windows.Forms.Label();
+            this.lblAlcohol = new System.Windows.Forms.Label();
+            this.lblAlcoholQty = new System.Windows.Forms.Label();
+            this.lblAlcoholDur = new System.Windows.Forms.Label();
+            this.lblDrug = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblDrugDur = new System.Windows.Forms.Label();
+            this.lblDietary = new System.Windows.Forms.Label();
+            this.lblBloodType = new System.Windows.Forms.Label();
+            this.lblRh = new System.Windows.Forms.Label();
+            this.lblDrugType = new System.Windows.Forms.Label();
+            this.lblNumChildren = new System.Windows.Forms.Label();
+            this.lblLMP = new System.Windows.Forms.Label();
+            this.lblMenses = new System.Windows.Forms.Label();
+            this.lblMensesFreq = new System.Windows.Forms.Label();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.lblPatientIDSelect = new System.Windows.Forms.Label();
+            this.txtPatientIDSelect = new System.Windows.Forms.TextBox();
+            this.btnPatientIDSelect = new System.Windows.Forms.Button();
+            this.lblHxBy = new System.Windows.Forms.Label();
             this.groupBoxHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +132,28 @@
             // 
             // groupBoxHistory
             // 
+            this.groupBoxHistory.Controls.Add(this.lblHxBy);
+            this.groupBoxHistory.Controls.Add(this.lblNotes);
+            this.groupBoxHistory.Controls.Add(this.lblMensesFreq);
+            this.groupBoxHistory.Controls.Add(this.lblMenses);
+            this.groupBoxHistory.Controls.Add(this.lblLMP);
+            this.groupBoxHistory.Controls.Add(this.lblNumChildren);
+            this.groupBoxHistory.Controls.Add(this.lblDrugType);
+            this.groupBoxHistory.Controls.Add(this.lblRh);
+            this.groupBoxHistory.Controls.Add(this.lblBloodType);
+            this.groupBoxHistory.Controls.Add(this.lblDietary);
+            this.groupBoxHistory.Controls.Add(this.lblDrugDur);
+            this.groupBoxHistory.Controls.Add(this.label10);
+            this.groupBoxHistory.Controls.Add(this.lblDrug);
+            this.groupBoxHistory.Controls.Add(this.lblAlcoholDur);
+            this.groupBoxHistory.Controls.Add(this.lblAlcoholQty);
+            this.groupBoxHistory.Controls.Add(this.lblAlcohol);
+            this.groupBoxHistory.Controls.Add(this.lblTobaccoDur);
+            this.groupBoxHistory.Controls.Add(this.lblTobaccoQty);
+            this.groupBoxHistory.Controls.Add(this.lblTobacco);
+            this.groupBoxHistory.Controls.Add(this.lblBehavioral);
+            this.groupBoxHistory.Controls.Add(this.lblEducation);
+            this.groupBoxHistory.Controls.Add(this.lblMaritalStatus);
             this.groupBoxHistory.Controls.Add(this.dgvHistory);
             this.groupBoxHistory.Controls.Add(this.txtMaritalStatus);
             this.groupBoxHistory.Controls.Add(this.txtEducation);
@@ -132,7 +179,7 @@
             this.groupBoxHistory.Controls.Add(this.txtHxBy);
             this.groupBoxHistory.Location = new System.Drawing.Point(12, 50);
             this.groupBoxHistory.Name = "groupBoxHistory";
-            this.groupBoxHistory.Size = new System.Drawing.Size(760, 442);
+            this.groupBoxHistory.Size = new System.Drawing.Size(760, 517);
             this.groupBoxHistory.TabIndex = 1;
             this.groupBoxHistory.TabStop = false;
             // 
@@ -143,247 +190,495 @@
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistory.Size = new System.Drawing.Size(740, 150);
+            this.dgvHistory.Size = new System.Drawing.Size(740, 166);
             this.dgvHistory.TabIndex = 0;
             this.dgvHistory.SelectionChanged += new System.EventHandler(this.dgvHistory_SelectionChanged);
             // 
             // txtMaritalStatus
             // 
-            this.txtMaritalStatus.Location = new System.Drawing.Point(10, 180);
+            this.txtMaritalStatus.Location = new System.Drawing.Point(112, 192);
             this.txtMaritalStatus.Name = "txtMaritalStatus";
-            this.txtMaritalStatus.Size = new System.Drawing.Size(300, 20);
+            this.txtMaritalStatus.Size = new System.Drawing.Size(230, 20);
             this.txtMaritalStatus.TabIndex = 1;
             // 
             // txtEducation
             // 
-            this.txtEducation.Location = new System.Drawing.Point(10, 210);
+            this.txtEducation.Location = new System.Drawing.Point(96, 222);
             this.txtEducation.Name = "txtEducation";
-            this.txtEducation.Size = new System.Drawing.Size(300, 20);
+            this.txtEducation.Size = new System.Drawing.Size(230, 20);
             this.txtEducation.TabIndex = 2;
             // 
             // txtBehavioral
             // 
-            this.txtBehavioral.Location = new System.Drawing.Point(10, 240);
+            this.txtBehavioral.Location = new System.Drawing.Point(133, 252);
             this.txtBehavioral.Name = "txtBehavioral";
-            this.txtBehavioral.Size = new System.Drawing.Size(300, 20);
+            this.txtBehavioral.Size = new System.Drawing.Size(230, 20);
             this.txtBehavioral.TabIndex = 3;
             // 
             // txtTobacco
             // 
-            this.txtTobacco.Location = new System.Drawing.Point(10, 270);
+            this.txtTobacco.Location = new System.Drawing.Point(91, 282);
             this.txtTobacco.Name = "txtTobacco";
-            this.txtTobacco.Size = new System.Drawing.Size(300, 20);
+            this.txtTobacco.Size = new System.Drawing.Size(230, 20);
             this.txtTobacco.TabIndex = 4;
             // 
             // txtTobaccoQty
             // 
-            this.txtTobaccoQty.Location = new System.Drawing.Point(10, 300);
+            this.txtTobaccoQty.Location = new System.Drawing.Point(107, 312);
             this.txtTobaccoQty.Name = "txtTobaccoQty";
-            this.txtTobaccoQty.Size = new System.Drawing.Size(300, 20);
+            this.txtTobaccoQty.Size = new System.Drawing.Size(230, 20);
             this.txtTobaccoQty.TabIndex = 5;
             // 
             // txtTobaccoDur
             // 
-            this.txtTobaccoDur.Location = new System.Drawing.Point(10, 330);
+            this.txtTobaccoDur.Location = new System.Drawing.Point(107, 342);
             this.txtTobaccoDur.Name = "txtTobaccoDur";
-            this.txtTobaccoDur.Size = new System.Drawing.Size(300, 20);
+            this.txtTobaccoDur.Size = new System.Drawing.Size(230, 20);
             this.txtTobaccoDur.TabIndex = 6;
             // 
             // txtAlcohol
             // 
-            this.txtAlcohol.Location = new System.Drawing.Point(10, 360);
+            this.txtAlcohol.Location = new System.Drawing.Point(83, 372);
             this.txtAlcohol.Name = "txtAlcohol";
-            this.txtAlcohol.Size = new System.Drawing.Size(300, 20);
+            this.txtAlcohol.Size = new System.Drawing.Size(230, 20);
             this.txtAlcohol.TabIndex = 7;
             // 
             // txtAlcoholQty
             // 
-            this.txtAlcoholQty.Location = new System.Drawing.Point(10, 390);
+            this.txtAlcoholQty.Location = new System.Drawing.Point(99, 402);
             this.txtAlcoholQty.Name = "txtAlcoholQty";
-            this.txtAlcoholQty.Size = new System.Drawing.Size(300, 20);
+            this.txtAlcoholQty.Size = new System.Drawing.Size(230, 20);
             this.txtAlcoholQty.TabIndex = 8;
             // 
             // txtAlcoholDur
             // 
-            this.txtAlcoholDur.Location = new System.Drawing.Point(10, 420);
+            this.txtAlcoholDur.Location = new System.Drawing.Point(100, 430);
             this.txtAlcoholDur.Name = "txtAlcoholDur";
-            this.txtAlcoholDur.Size = new System.Drawing.Size(300, 20);
+            this.txtAlcoholDur.Size = new System.Drawing.Size(230, 20);
             this.txtAlcoholDur.TabIndex = 9;
             // 
             // txtDrug
             // 
-            this.txtDrug.Location = new System.Drawing.Point(350, 180);
+            this.txtDrug.Location = new System.Drawing.Point(442, 192);
             this.txtDrug.Name = "txtDrug";
-            this.txtDrug.Size = new System.Drawing.Size(300, 20);
+            this.txtDrug.Size = new System.Drawing.Size(230, 20);
             this.txtDrug.TabIndex = 10;
             // 
             // txtDrugType
             // 
-            this.txtDrugType.Location = new System.Drawing.Point(350, 210);
+            this.txtDrugType.Location = new System.Drawing.Point(466, 222);
             this.txtDrugType.Name = "txtDrugType";
-            this.txtDrugType.Size = new System.Drawing.Size(300, 20);
+            this.txtDrugType.Size = new System.Drawing.Size(230, 20);
             this.txtDrugType.TabIndex = 11;
             // 
             // txtDrugDur
             // 
-            this.txtDrugDur.Location = new System.Drawing.Point(350, 240);
+            this.txtDrugDur.Location = new System.Drawing.Point(459, 252);
             this.txtDrugDur.Name = "txtDrugDur";
-            this.txtDrugDur.Size = new System.Drawing.Size(300, 20);
+            this.txtDrugDur.Size = new System.Drawing.Size(230, 20);
             this.txtDrugDur.TabIndex = 12;
             // 
             // txtDietary
             // 
-            this.txtDietary.Location = new System.Drawing.Point(350, 270);
+            this.txtDietary.Location = new System.Drawing.Point(452, 282);
             this.txtDietary.Name = "txtDietary";
-            this.txtDietary.Size = new System.Drawing.Size(300, 20);
+            this.txtDietary.Size = new System.Drawing.Size(230, 20);
             this.txtDietary.TabIndex = 13;
             // 
             // txtBloodType
             // 
-            this.txtBloodType.Location = new System.Drawing.Point(350, 300);
+            this.txtBloodType.Location = new System.Drawing.Point(470, 312);
             this.txtBloodType.Name = "txtBloodType";
-            this.txtBloodType.Size = new System.Drawing.Size(300, 20);
+            this.txtBloodType.Size = new System.Drawing.Size(230, 20);
             this.txtBloodType.TabIndex = 14;
             // 
             // txtRh
             // 
-            this.txtRh.Location = new System.Drawing.Point(350, 330);
+            this.txtRh.Location = new System.Drawing.Point(433, 342);
             this.txtRh.Name = "txtRh";
-            this.txtRh.Size = new System.Drawing.Size(300, 20);
+            this.txtRh.Size = new System.Drawing.Size(230, 20);
             this.txtRh.TabIndex = 15;
             // 
             // txtNumChildren
             // 
-            this.txtNumChildren.Location = new System.Drawing.Point(350, 360);
+            this.txtNumChildren.Location = new System.Drawing.Point(509, 372);
             this.txtNumChildren.Name = "txtNumChildren";
-            this.txtNumChildren.Size = new System.Drawing.Size(300, 20);
+            this.txtNumChildren.Size = new System.Drawing.Size(230, 20);
             this.txtNumChildren.TabIndex = 16;
             // 
             // txtLMP
             // 
-            this.txtLMP.Location = new System.Drawing.Point(350, 390);
+            this.txtLMP.Location = new System.Drawing.Point(509, 458);
             this.txtLMP.Name = "txtLMP";
-            this.txtLMP.Size = new System.Drawing.Size(300, 20);
+            this.txtLMP.Size = new System.Drawing.Size(230, 20);
             this.txtLMP.TabIndex = 17;
             // 
             // chkMensesYes
             // 
-            this.chkMensesYes.Location = new System.Drawing.Point(350, 420);
+            this.chkMensesYes.Location = new System.Drawing.Point(496, 430);
             this.chkMensesYes.Name = "chkMensesYes";
-            this.chkMensesYes.Size = new System.Drawing.Size(104, 24);
+            this.chkMensesYes.Size = new System.Drawing.Size(75, 24);
             this.chkMensesYes.TabIndex = 18;
+            this.chkMensesYes.Text = "Yes";
             // 
             // chkMensesNo
             // 
-            this.chkMensesNo.Location = new System.Drawing.Point(470, 420);
+            this.chkMensesNo.Location = new System.Drawing.Point(577, 430);
             this.chkMensesNo.Name = "chkMensesNo";
-            this.chkMensesNo.Size = new System.Drawing.Size(104, 24);
+            this.chkMensesNo.Size = new System.Drawing.Size(75, 24);
             this.chkMensesNo.TabIndex = 19;
+            this.chkMensesNo.Text = "No";
             // 
             // txtMensesFreq
             // 
-            this.txtMensesFreq.Location = new System.Drawing.Point(350, 450);
+            this.txtMensesFreq.Location = new System.Drawing.Point(483, 402);
             this.txtMensesFreq.Name = "txtMensesFreq";
-            this.txtMensesFreq.Size = new System.Drawing.Size(300, 20);
+            this.txtMensesFreq.Size = new System.Drawing.Size(230, 20);
             this.txtMensesFreq.TabIndex = 20;
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(350, 480);
+            this.txtNotes.Location = new System.Drawing.Point(75, 458);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(300, 50);
+            this.txtNotes.Size = new System.Drawing.Size(254, 50);
             this.txtNotes.TabIndex = 21;
             // 
             // txtHxBy
             // 
-            this.txtHxBy.Location = new System.Drawing.Point(350, 540);
+            this.txtHxBy.Location = new System.Drawing.Point(493, 484);
             this.txtHxBy.Name = "txtHxBy";
-            this.txtHxBy.Size = new System.Drawing.Size(300, 20);
+            this.txtHxBy.Size = new System.Drawing.Size(230, 20);
             this.txtHxBy.TabIndex = 22;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(14, 498);
+            this.btnAdd.BackColor = System.Drawing.Color.Azure;
+            this.btnAdd.Location = new System.Drawing.Point(21, 573);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(92, 498);
+            this.btnModify.BackColor = System.Drawing.Color.Azure;
+            this.btnModify.Location = new System.Drawing.Point(99, 573);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 3;
             this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = false;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(182, 498);
+            this.btnSave.BackColor = System.Drawing.Color.Azure;
+            this.btnSave.Location = new System.Drawing.Point(189, 573);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(272, 498);
+            this.btnUndo.BackColor = System.Drawing.Color.Azure;
+            this.btnUndo.Location = new System.Drawing.Point(279, 573);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 5;
             this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = false;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(362, 498);
+            this.btnDelete.BackColor = System.Drawing.Color.Azure;
+            this.btnDelete.Location = new System.Drawing.Point(369, 573);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSelectPatient
             // 
-            this.btnSelectPatient.Location = new System.Drawing.Point(502, 498);
+            this.btnSelectPatient.BackColor = System.Drawing.Color.Azure;
+            this.btnSelectPatient.Location = new System.Drawing.Point(517, 573);
             this.btnSelectPatient.Name = "btnSelectPatient";
-            this.btnSelectPatient.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectPatient.Size = new System.Drawing.Size(114, 23);
             this.btnSelectPatient.TabIndex = 7;
             this.btnSelectPatient.Text = "Select Patient";
+            this.btnSelectPatient.UseVisualStyleBackColor = false;
             this.btnSelectPatient.Click += new System.EventHandler(this.btnSelectPatient_Click);
             // 
             // btnDemographics
             // 
-            this.btnDemographics.Location = new System.Drawing.Point(502, 528);
+            this.btnDemographics.BackColor = System.Drawing.Color.Azure;
+            this.btnDemographics.Location = new System.Drawing.Point(517, 603);
             this.btnDemographics.Name = "btnDemographics";
-            this.btnDemographics.Size = new System.Drawing.Size(75, 23);
+            this.btnDemographics.Size = new System.Drawing.Size(114, 23);
             this.btnDemographics.TabIndex = 8;
             this.btnDemographics.Text = "Demographics";
+            this.btnDemographics.UseVisualStyleBackColor = false;
             // 
             // btnImmunizations
             // 
-            this.btnImmunizations.Location = new System.Drawing.Point(622, 498);
+            this.btnImmunizations.BackColor = System.Drawing.Color.Azure;
+            this.btnImmunizations.Location = new System.Drawing.Point(637, 573);
             this.btnImmunizations.Name = "btnImmunizations";
-            this.btnImmunizations.Size = new System.Drawing.Size(75, 23);
+            this.btnImmunizations.Size = new System.Drawing.Size(114, 23);
             this.btnImmunizations.TabIndex = 9;
             this.btnImmunizations.Text = "Immunizations";
+            this.btnImmunizations.UseVisualStyleBackColor = false;
             // 
             // btnMedications
             // 
-            this.btnMedications.Location = new System.Drawing.Point(622, 528);
+            this.btnMedications.BackColor = System.Drawing.Color.Azure;
+            this.btnMedications.Location = new System.Drawing.Point(637, 603);
             this.btnMedications.Name = "btnMedications";
-            this.btnMedications.Size = new System.Drawing.Size(75, 23);
+            this.btnMedications.Size = new System.Drawing.Size(114, 23);
             this.btnMedications.TabIndex = 10;
             this.btnMedications.Text = "Medications";
+            this.btnMedications.UseVisualStyleBackColor = false;
+            // 
+            // lblMaritalStatus
+            // 
+            this.lblMaritalStatus.AutoSize = true;
+            this.lblMaritalStatus.Location = new System.Drawing.Point(35, 195);
+            this.lblMaritalStatus.Name = "lblMaritalStatus";
+            this.lblMaritalStatus.Size = new System.Drawing.Size(71, 13);
+            this.lblMaritalStatus.TabIndex = 23;
+            this.lblMaritalStatus.Text = "Marital Status";
+            // 
+            // lblEducation
+            // 
+            this.lblEducation.AutoSize = true;
+            this.lblEducation.Location = new System.Drawing.Point(35, 225);
+            this.lblEducation.Name = "lblEducation";
+            this.lblEducation.Size = new System.Drawing.Size(55, 13);
+            this.lblEducation.TabIndex = 24;
+            this.lblEducation.Text = "Education";
+            // 
+            // lblBehavioral
+            // 
+            this.lblBehavioral.AutoSize = true;
+            this.lblBehavioral.Location = new System.Drawing.Point(35, 255);
+            this.lblBehavioral.Name = "lblBehavioral";
+            this.lblBehavioral.Size = new System.Drawing.Size(92, 13);
+            this.lblBehavioral.TabIndex = 25;
+            this.lblBehavioral.Text = "Behavioral History";
+            // 
+            // lblTobacco
+            // 
+            this.lblTobacco.AutoSize = true;
+            this.lblTobacco.Location = new System.Drawing.Point(35, 285);
+            this.lblTobacco.Name = "lblTobacco";
+            this.lblTobacco.Size = new System.Drawing.Size(50, 13);
+            this.lblTobacco.TabIndex = 26;
+            this.lblTobacco.Text = "Tobacco";
+            // 
+            // lblTobaccoQty
+            // 
+            this.lblTobaccoQty.AutoSize = true;
+            this.lblTobaccoQty.Location = new System.Drawing.Point(35, 315);
+            this.lblTobaccoQty.Name = "lblTobaccoQty";
+            this.lblTobaccoQty.Size = new System.Drawing.Size(66, 13);
+            this.lblTobaccoQty.TabIndex = 27;
+            this.lblTobaccoQty.Text = "TobaccoQty";
+            // 
+            // lblTobaccoDur
+            // 
+            this.lblTobaccoDur.AutoSize = true;
+            this.lblTobaccoDur.Location = new System.Drawing.Point(35, 345);
+            this.lblTobaccoDur.Name = "lblTobaccoDur";
+            this.lblTobaccoDur.Size = new System.Drawing.Size(67, 13);
+            this.lblTobaccoDur.TabIndex = 28;
+            this.lblTobaccoDur.Text = "TobaccoDur";
+            // 
+            // lblAlcohol
+            // 
+            this.lblAlcohol.AutoSize = true;
+            this.lblAlcohol.Location = new System.Drawing.Point(35, 375);
+            this.lblAlcohol.Name = "lblAlcohol";
+            this.lblAlcohol.Size = new System.Drawing.Size(42, 13);
+            this.lblAlcohol.TabIndex = 29;
+            this.lblAlcohol.Text = "Alcohol";
+            // 
+            // lblAlcoholQty
+            // 
+            this.lblAlcoholQty.AutoSize = true;
+            this.lblAlcoholQty.Location = new System.Drawing.Point(35, 405);
+            this.lblAlcoholQty.Name = "lblAlcoholQty";
+            this.lblAlcoholQty.Size = new System.Drawing.Size(58, 13);
+            this.lblAlcoholQty.TabIndex = 30;
+            this.lblAlcoholQty.Text = "AlcoholQty";
+            // 
+            // lblAlcoholDur
+            // 
+            this.lblAlcoholDur.AutoSize = true;
+            this.lblAlcoholDur.Location = new System.Drawing.Point(35, 435);
+            this.lblAlcoholDur.Name = "lblAlcoholDur";
+            this.lblAlcoholDur.Size = new System.Drawing.Size(59, 13);
+            this.lblAlcoholDur.TabIndex = 31;
+            this.lblAlcoholDur.Text = "AlcoholDur";
+            // 
+            // lblDrug
+            // 
+            this.lblDrug.AutoSize = true;
+            this.lblDrug.Location = new System.Drawing.Point(406, 195);
+            this.lblDrug.Name = "lblDrug";
+            this.lblDrug.Size = new System.Drawing.Size(30, 13);
+            this.lblDrug.TabIndex = 32;
+            this.lblDrug.Text = "Drug";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(406, 225);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "DrugType";
+            // 
+            // lblDrugDur
+            // 
+            this.lblDrugDur.AutoSize = true;
+            this.lblDrugDur.Location = new System.Drawing.Point(406, 255);
+            this.lblDrugDur.Name = "lblDrugDur";
+            this.lblDrugDur.Size = new System.Drawing.Size(47, 13);
+            this.lblDrugDur.TabIndex = 34;
+            this.lblDrugDur.Text = "DrugDur";
+            // 
+            // lblDietary
+            // 
+            this.lblDietary.AutoSize = true;
+            this.lblDietary.Location = new System.Drawing.Point(406, 285);
+            this.lblDietary.Name = "lblDietary";
+            this.lblDietary.Size = new System.Drawing.Size(40, 13);
+            this.lblDietary.TabIndex = 35;
+            this.lblDietary.Text = "Dietary";
+            // 
+            // lblBloodType
+            // 
+            this.lblBloodType.AutoSize = true;
+            this.lblBloodType.Location = new System.Drawing.Point(406, 315);
+            this.lblBloodType.Name = "lblBloodType";
+            this.lblBloodType.Size = new System.Drawing.Size(58, 13);
+            this.lblBloodType.TabIndex = 36;
+            this.lblBloodType.Text = "BloodType";
+            // 
+            // lblRh
+            // 
+            this.lblRh.AutoSize = true;
+            this.lblRh.Location = new System.Drawing.Point(406, 345);
+            this.lblRh.Name = "lblRh";
+            this.lblRh.Size = new System.Drawing.Size(21, 13);
+            this.lblRh.TabIndex = 37;
+            this.lblRh.Text = "Rh";
+            // 
+            // lblDrugType
+            // 
+            this.lblDrugType.AutoSize = true;
+            this.lblDrugType.Location = new System.Drawing.Point(406, 225);
+            this.lblDrugType.Name = "lblDrugType";
+            this.lblDrugType.Size = new System.Drawing.Size(54, 13);
+            this.lblDrugType.TabIndex = 38;
+            this.lblDrugType.Text = "DrugType";
+            // 
+            // lblNumChildren
+            // 
+            this.lblNumChildren.AutoSize = true;
+            this.lblNumChildren.Location = new System.Drawing.Point(406, 375);
+            this.lblNumChildren.Name = "lblNumChildren";
+            this.lblNumChildren.Size = new System.Drawing.Size(97, 13);
+            this.lblNumChildren.TabIndex = 38;
+            this.lblNumChildren.Text = "Number of Children";
+            // 
+            // lblLMP
+            // 
+            this.lblLMP.AutoSize = true;
+            this.lblLMP.Location = new System.Drawing.Point(406, 405);
+            this.lblLMP.Name = "lblLMP";
+            this.lblLMP.Size = new System.Drawing.Size(62, 13);
+            this.lblLMP.TabIndex = 39;
+            this.lblLMP.Text = "LMP Status";
+            // 
+            // lblMenses
+            // 
+            this.lblMenses.AutoSize = true;
+            this.lblMenses.Location = new System.Drawing.Point(406, 435);
+            this.lblMenses.Name = "lblMenses";
+            this.lblMenses.Size = new System.Drawing.Size(84, 13);
+            this.lblMenses.TabIndex = 40;
+            this.lblMenses.Text = "Monthly Menses";
+            // 
+            // lblMensesFreq
+            // 
+            this.lblMensesFreq.AutoSize = true;
+            this.lblMensesFreq.Location = new System.Drawing.Point(406, 461);
+            this.lblMensesFreq.Name = "lblMensesFreq";
+            this.lblMensesFreq.Size = new System.Drawing.Size(97, 13);
+            this.lblMensesFreq.TabIndex = 41;
+            this.lblMensesFreq.Text = "Menses Frequency";
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Location = new System.Drawing.Point(34, 461);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(35, 13);
+            this.lblNotes.TabIndex = 42;
+            this.lblNotes.Text = "Notes";
+            // 
+            // lblPatientIDSelect
+            // 
+            this.lblPatientIDSelect.AutoSize = true;
+            this.lblPatientIDSelect.Location = new System.Drawing.Point(19, 613);
+            this.lblPatientIDSelect.Name = "lblPatientIDSelect";
+            this.lblPatientIDSelect.Size = new System.Drawing.Size(87, 13);
+            this.lblPatientIDSelect.TabIndex = 43;
+            this.lblPatientIDSelect.Text = "Patient ID Select";
+            // 
+            // txtPatientIDSelect
+            // 
+            this.txtPatientIDSelect.Location = new System.Drawing.Point(116, 610);
+            this.txtPatientIDSelect.Name = "txtPatientIDSelect";
+            this.txtPatientIDSelect.Size = new System.Drawing.Size(58, 20);
+            this.txtPatientIDSelect.TabIndex = 43;
+            // 
+            // btnPatientIDSelect
+            // 
+            this.btnPatientIDSelect.BackColor = System.Drawing.Color.Azure;
+            this.btnPatientIDSelect.Location = new System.Drawing.Point(189, 608);
+            this.btnPatientIDSelect.Name = "btnPatientIDSelect";
+            this.btnPatientIDSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnPatientIDSelect.TabIndex = 44;
+            this.btnPatientIDSelect.Text = "Load Patient";
+            this.btnPatientIDSelect.UseVisualStyleBackColor = false;
+            this.btnPatientIDSelect.Click += new System.EventHandler(this.btnPatientIDSelect_Click);
+            // 
+            // lblHxBy
+            // 
+            this.lblHxBy.AutoSize = true;
+            this.lblHxBy.Location = new System.Drawing.Point(406, 487);
+            this.lblHxBy.Name = "lblHxBy";
+            this.lblHxBy.Size = new System.Drawing.Size(81, 13);
+            this.lblHxBy.TabIndex = 43;
+            this.lblHxBy.Text = "Hx Obtained By";
             // 
             // GeneralMedicalHistory
             // 
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 631);
+            this.Controls.Add(this.btnPatientIDSelect);
+            this.Controls.Add(this.txtPatientIDSelect);
+            this.Controls.Add(this.lblPatientIDSelect);
             this.Controls.Add(this.lblPatientHeader);
             this.Controls.Add(this.groupBoxHistory);
             this.Controls.Add(this.btnAdd);
@@ -397,13 +692,40 @@
             this.Controls.Add(this.btnMedications);
             this.Name = "GeneralMedicalHistory";
             this.Text = "General Medical History";
+            this.Load += new System.EventHandler(this.GeneralMedicalHistory_Load_1);
             this.groupBoxHistory.ResumeLayout(false);
             this.groupBoxHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+        private System.Windows.Forms.Label lblLMP;
+        private System.Windows.Forms.Label lblNumChildren;
+        private System.Windows.Forms.Label lblDrugType;
+        private System.Windows.Forms.Label lblRh;
+        private System.Windows.Forms.Label lblBloodType;
+        private System.Windows.Forms.Label lblDietary;
+        private System.Windows.Forms.Label lblDrugDur;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblDrug;
+        private System.Windows.Forms.Label lblAlcoholDur;
+        private System.Windows.Forms.Label lblAlcoholQty;
+        private System.Windows.Forms.Label lblAlcohol;
+        private System.Windows.Forms.Label lblTobaccoDur;
+        private System.Windows.Forms.Label lblTobaccoQty;
+        private System.Windows.Forms.Label lblTobacco;
+        private System.Windows.Forms.Label lblBehavioral;
+        private System.Windows.Forms.Label lblEducation;
+        private System.Windows.Forms.Label lblMaritalStatus;
+        private System.Windows.Forms.Label lblMenses;
+        private System.Windows.Forms.Label lblNotes;
+        private System.Windows.Forms.Label lblMensesFreq;
+        private System.Windows.Forms.Label lblPatientIDSelect;
+        private System.Windows.Forms.TextBox txtPatientIDSelect;
+        private System.Windows.Forms.Button btnPatientIDSelect;
+        private System.Windows.Forms.Label lblHxBy;
     }
 }

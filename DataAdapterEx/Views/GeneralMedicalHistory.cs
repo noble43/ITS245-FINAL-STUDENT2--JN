@@ -250,6 +250,10 @@ namespace DataAdapterEx.Views
             txtNotes.Clear();
             txtHxBy.Clear();
         }
+        private void btnPatientIDSelect_Click(object sender, EventArgs e)
+        {
+
+        }
 
         // ============================
         // NAVIGATION
@@ -259,5 +263,11 @@ namespace DataAdapterEx.Views
             Form form = new Form1(this);
             this.Hide();
         }
+
+        private void GeneralMedicalHistory_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
