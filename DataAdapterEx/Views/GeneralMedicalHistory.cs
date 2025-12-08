@@ -41,9 +41,7 @@ namespace DataAdapterEx.Views
                 DataTable dt = DBUtilsGeneralMedicalHistory.GetByPatientId(conn, _patientId);
                 dgvHistory.DataSource = dt;
             }
-
             SetEditMode(false);
-            ClearFields();
         }
 
         // ============================
@@ -100,7 +98,7 @@ namespace DataAdapterEx.Views
         {
             if (_historyId == -1)
             {
-                MessageBox.Show("Select a record first.");
+                MessageBox.Show("Select a patient record first.");
                 return;
             }
             _isAddMode = false;
@@ -173,7 +171,7 @@ namespace DataAdapterEx.Views
                     );
                 }
             }
-
+            ClearFields();
             LoadHistory();
         }
 
@@ -184,7 +182,7 @@ namespace DataAdapterEx.Views
         {
             if (_historyId == -1)
             {
-                MessageBox.Show("Select a record first.");
+                MessageBox.Show("Select a patient record first.");
                 return;
             }
 
@@ -252,7 +250,25 @@ namespace DataAdapterEx.Views
         }
         private void btnPatientIDSelect_Click(object sender, EventArgs e)
         {
-            if 
+            if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
+            {
+                MessageBox.Show("Please enter a Patient ID.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    _patientId = Convert.ToInt32(txtPatientIDSelect.Text);
+                    GlobalData.CurrentPatientID = _patientId;
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
+                    return;
+                }
+            }
+            ClearFields();
             LoadHistory();
         }
 
