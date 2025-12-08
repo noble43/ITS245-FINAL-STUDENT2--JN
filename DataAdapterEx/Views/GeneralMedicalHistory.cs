@@ -252,7 +252,7 @@ namespace DataAdapterEx.Views
         }
         private void btnPatientIDSelect_Click(object sender, EventArgs e)
         {
-
+            LoadHistory();
         }
 
         // ============================
@@ -263,11 +263,5 @@ namespace DataAdapterEx.Views
             Form form = new Form1(this);
             this.Hide();
         }
-
-        private void GeneralMedicalHistory_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

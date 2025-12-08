@@ -692,7 +692,6 @@
             this.Controls.Add(this.btnMedications);
             this.Name = "GeneralMedicalHistory";
             this.Text = "General Medical History";
-            this.Load += new System.EventHandler(this.GeneralMedicalHistory_Load_1);
             this.groupBoxHistory.ResumeLayout(false);
             this.groupBoxHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
