@@ -39,9 +39,9 @@ namespace DataAdapterEx.Views
         // =========================
         private void LoadMedications()
         {
-            using (MySqlConnection conn = DBUtilsGeneralMedicalHistory.MakeConnection())
+            using (MySqlConnection conn = DBUtilsMedicationHistory.MakeConnection())
             {
-                DataTable dt = DBUtilsGeneralMedicalHistory.GetByPatientId(conn, _patientId);
+                DataTable dt = DBUtilsMedicationHistory.GetByPatientId(conn, _patientId);
                 dgvMedications.DataSource = dt;
             }
             //lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
@@ -195,40 +195,40 @@ namespace DataAdapterEx.Views
                 }
             }
         }
-        private void btnPatientIDSelect_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
-            {
-                MessageBox.Show("Please enter a Patient ID.");
-                return;
-            }
-            else
-            {
-                try
-                {
-                    _patientId = Convert.ToInt32(txtPatientIDSelect.Text);
-                    GlobalData.CurrentPatientID = _patientId;
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
-                    return;
-                }
-                if (!PatientExists(_patientId))
-                {
-                    MessageBox.Show("No patient found with that ID.");
-                    return;
-                }
-            }
+        //private void btnPatientIDSelect_Click(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
+        //    {
+        //        MessageBox.Show("Please enter a Patient ID.");
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            _patientId = Convert.ToInt32(txtPatientIDSelect.Text);
+        //            GlobalData.CurrentPatientID = _patientId;
+        //        }
+        //        catch (FormatException)
+        //        {
+        //            MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
+        //            return;
+        //        }
+        //        if (!PatientExists(_patientId))
+        //        {
+        //            MessageBox.Show("No patient found with that ID.");
+        //            return;
+        //        }
+        //    }
 
-            DBUtilsGeneralMedicalHistory.LoadPatientInfo(_patientId);
+        //    DBUtilsGeneralMedicalHistory.LoadPatientInfo(_patientId);
 
-            _patientName = GlobalData.CurrentPatientFullName;
-            _patientAge = GlobalData.CurrentPatientAge;
+        //    _patientName = GlobalData.CurrentPatientFullName;
+        //    _patientAge = GlobalData.CurrentPatientAge;
 
-            ClearFields();
-            LoadMedications();
-        }
+        //    ClearFields();
+        //    LoadMedications();
+        //}
 
         // =========================
         // NAVIGATION

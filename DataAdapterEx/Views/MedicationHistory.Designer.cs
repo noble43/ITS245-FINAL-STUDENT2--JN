@@ -279,7 +279,8 @@
             this.ResumeLayout(false);
 
         }
-
+        
+        //private System.Windows.Forms.Label lblPatientHeader;
         private System.Windows.Forms.DataGridView dgvMedications;
         private System.Windows.Forms.TextBox txtMedication;
         private System.Windows.Forms.TextBox txtAmount;
@@ -304,8 +305,8 @@
         private System.Windows.Forms.Label lblMedicationEndDate;
         private System.Windows.Forms.TextBox txtMedicationStartDate;
         private System.Windows.Forms.Label lblMedicationStartDate;
-        private System.Windows.Forms.Button btnPatientIDSelect;
-        private System.Windows.Forms.TextBox txtPatientIDSelect;
-        private System.Windows.Forms.Label lblPatientIDSelect;
+        //private System.Windows.Forms.Button btnPatientIDSelect;
+        //private System.Windows.Forms.TextBox txtPatientIDSelect;
+        //private System.Windows.Forms.Label lblPatientIDSelect;
     }
 }

@@ -152,6 +152,12 @@ namespace DataAdapterEx
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form form = new Views.MedicationHistoryForm(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
+            form.Show();
+        }
+
         //private void button1_Click(object sender, EventArgs e)
         //{
         //    Form form = new Views.Allergies(this);

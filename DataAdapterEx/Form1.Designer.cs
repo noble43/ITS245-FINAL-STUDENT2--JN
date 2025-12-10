@@ -35,9 +35,9 @@
             this.btn_ShowGlobalPID = new System.Windows.Forms.Button();
             this.lbl_GlobalPID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_PtDemog = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +117,18 @@
             this.panel1.Size = new System.Drawing.Size(163, 313);
             this.panel1.TabIndex = 6;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(2, 59);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 40);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Medication History";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(15, 103);
@@ -139,17 +151,6 @@
             this.btn_PtDemog.Text = "Medical History";
             this.btn_PtDemog.UseVisualStyleBackColor = true;
             this.btn_PtDemog.Click += new System.EventHandler(this.btn_PtDemog_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(2, 59);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Medication History";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
