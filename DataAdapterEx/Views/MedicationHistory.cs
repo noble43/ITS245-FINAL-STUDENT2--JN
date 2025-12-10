@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DataAdapterEx.Views
 {
-    public partial class MedicationHistoryForm : Form
+    public partial class MedicationHistory : Form
     {
         private int _patientId;
         private string _patientName;
@@ -20,7 +20,7 @@ namespace DataAdapterEx.Views
         private int _medicationId = -1;
         private bool _isAddMode = false;
 
-        public MedicationHistoryForm(int patientId, string patientName, int patientAge)
+        public MedicationHistory(int patientId, string patientName, int patientAge)
         {
             InitializeComponent();
             _patientId = patientId;
@@ -29,74 +29,50 @@ namespace DataAdapterEx.Views
             SetEditMode(false);
             if (_patientId != 0)
             {
-                LoadMedications();
+                LoadMedication();
             }
-            dgvMedications.AllowUserToAddRows = false;
+            dgvMedication.AllowUserToAddRows = false;
         }
 
-        // =========================
-        // LOAD DATA
-        // =========================
-        private void LoadMedications()
+        // ============================
+        // LOAD Medication
+        // ============================
+        private void LoadMedication()
         {
             using (MySqlConnection conn = DBUtilsMedicationHistory.MakeConnection())
             {
                 DataTable dt = DBUtilsMedicationHistory.GetByPatientId(conn, _patientId);
-                dgvMedications.DataSource = dt;
+                dgvMedication.DataSource = dt;
             }
-            //lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
+            lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
             SetEditMode(false);
         }
 
-        // =========================
-        // MODE CONTROL
-        // =========================
-        private void SetEditMode(bool enabled)
-        {
-            groupBoxMedications.Enabled = enabled;
-
-            btnSave.Enabled = enabled;
-            btnUndo.Enabled = enabled;
-
-            btnAdd.Enabled = !enabled;
-            //btnModify.Enabled = !enabled;
-            btnDelete.Enabled = !enabled;
-        }
-
-        // =========================
+        // ============================
         // GRID SELECTION
-        // =========================
-        private void dgvMedications_SelectionChanged(object sender, EventArgs e)
+        // ============================
+        private void dgvMedication_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvMedications.SelectedRows.Count > 0)
-            {
-                txtMedication.Text =
-                    dgvMedications.SelectedRows[0].Cells["Medication"].Value.ToString();
+            if (dgvMedication.SelectedRows.Count == 0) return;
 
-                txtAmount.Text =
-                    dgvMedications.SelectedRows[0].Cells["MedicationAmt"].Value.ToString();
+            DataGridViewRow row = dgvMedication.SelectedRows[0];
 
-                txtUnit.Text =
-                    dgvMedications.SelectedRows[0].Cells["MedicationUnit"].Value.ToString();
-                
-                txtInstructions.Text =
-                    dgvMedications.SelectedRows[0].Cells["Instructions"].Value.ToString();
+            _medicationId = Convert.ToInt32(row.Cells["PrescriptionID"].Value);
 
-                txtMedicationStartDate.Text =
-                    dgvMedications.SelectedRows[0].Cells["MedicationStartDate"].Value.ToString();
+            txtMedication.Text = row.Cells["Medication"].Value.ToString();
+            txtAmount.Text = row.Cells["MedicationAmt"].Value.ToString();
+            txtUnit.Text = row.Cells["MedicationUnit"].Value.ToString();
+            txtInstructions.Text = row.Cells["Instructions"].Value.ToString();
+            txtStartDate.Text = row.Cells["MedicationStartDate"].Value.ToString();
+            txtEndDate.Text = row.Cells["MedicationEndDate"].Value.ToString();
+            txtHCP.Text = row.Cells["PrescriptionHCP"].Value.ToString();
 
-                txtMedicationEndDate.Text =
-                    dgvMedications.SelectedRows[0].Cells["MedicationEndDate"].Value.ToString();
-
-                txtPrescriptionHCP.Text =
-                    dgvMedications.SelectedRows[0].Cells["PrescriptionHCP"].Value.ToString();
-            }
+            SetEditMode(false);
         }
 
-        // =========================
-        // BUTTON EVENTS
-        // =========================
-
+        // ============================
+        // ADD
+        // ============================
         private void btnAdd_Click(object sender, EventArgs e)
         {
             _isAddMode = true;
@@ -105,6 +81,23 @@ namespace DataAdapterEx.Views
             SetEditMode(true);
         }
 
+        // ============================
+        // MODIFY
+        // ============================
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if (_medicationId == -1)
+            {
+                MessageBox.Show("Select a patient record first.");
+                return;
+            }
+            _isAddMode = false;
+            SetEditMode(true);
+        }
+
+        // ============================
+        // SAVE
+        // ============================
         private void btnSave_Click(object sender, EventArgs e)
         {
             using (MySqlConnection conn = DBUtilsMedicationHistory.MakeConnection())
@@ -118,9 +111,9 @@ namespace DataAdapterEx.Views
                         txtAmount.Text,
                         txtUnit.Text,
                         txtInstructions.Text,
-                        txtMedicationStartDate.Text,
-                        txtMedicationEndDate.Text,
-                        txtPrescriptionHCP.Text
+                        txtStartDate.Text,
+                        txtEndDate.Text,
+                        txtHCP.Text
                     );
                 }
                 else
@@ -132,17 +125,19 @@ namespace DataAdapterEx.Views
                         txtAmount.Text,
                         txtUnit.Text,
                         txtInstructions.Text,
-                        txtMedicationStartDate.Text,
-                        txtMedicationEndDate.Text,
-                        txtPrescriptionHCP.Text
+                        txtStartDate.Text,
+                        txtEndDate.Text,
+                        txtHCP.Text
                     );
                 }
             }
             ClearFields();
-            LoadMedications();
+            LoadMedication();
         }
 
-
+        // ============================
+        // DELETE
+        // ============================
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (_medicationId == -1)
@@ -159,31 +154,49 @@ namespace DataAdapterEx.Views
                 DBUtilsMedicationHistory.DeleteMedication(conn, _medicationId);
             }
 
-            LoadMedications();
+            LoadMedication();
         }
 
+        // ============================
+        // UNDO
+        // ============================
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            LoadMedications();
+            LoadMedication();
         }
 
-        // =========================
-        // HELPERS
-        // =========================
+        // ============================
+        // UI STATE
+        // ============================
+        private void SetEditMode(bool enabled)
+        {
+            groupBoxMedication.Enabled = enabled;
+
+            btnSave.Enabled = enabled;
+            btnUndo.Enabled = enabled;
+
+            btnAdd.Enabled = !enabled;
+            btnModify.Enabled = !enabled;
+            btnDelete.Enabled = !enabled;
+        }
+
+        // ============================
+        // CLEAR FIELDS
+        // ============================
         private void ClearFields()
         {
             txtMedication.Clear();
             txtAmount.Clear();
             txtUnit.Clear();
             txtInstructions.Clear();
-            txtMedicationStartDate.Clear();
-            txtMedicationEndDate.Clear();
-            txtPrescriptionHCP.Clear();
+            txtStartDate.Clear();
+            txtEndDate.Clear();
+            txtHCP.Clear();
         }
 
         private bool PatientExists(int patientId)
         {
-            using (MySqlConnection conn = DBUtilsGeneralMedicalHistory.MakeConnection())
+            using (MySqlConnection conn = DBUtilsMedicationHistory.MakeConnection())
             {
                 string query = "SELECT COUNT(*) FROM patientdemographics WHERE PatientID = @id";
 
@@ -195,66 +208,67 @@ namespace DataAdapterEx.Views
                 }
             }
         }
-        //private void btnPatientIDSelect_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
-        //    {
-        //        MessageBox.Show("Please enter a Patient ID.");
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            _patientId = Convert.ToInt32(txtPatientIDSelect.Text);
-        //            GlobalData.CurrentPatientID = _patientId;
-        //        }
-        //        catch (FormatException)
-        //        {
-        //            MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
-        //            return;
-        //        }
-        //        if (!PatientExists(_patientId))
-        //        {
-        //            MessageBox.Show("No patient found with that ID.");
-        //            return;
-        //        }
-        //    }
 
-        //    DBUtilsGeneralMedicalHistory.LoadPatientInfo(_patientId);
+        private void btnPatientIDSelect_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
+            {
+                MessageBox.Show("Please enter a Patient ID.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    _patientId = Convert.ToInt32(txtPatientIDSelect.Text);
+                    GlobalData.CurrentPatientID = _patientId;
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
+                    return;
+                }
+                if (!PatientExists(_patientId))
+                {
+                    MessageBox.Show("No patient found with that ID.");
+                    return;
+                }
+            }
 
-        //    _patientName = GlobalData.CurrentPatientFullName;
-        //    _patientAge = GlobalData.CurrentPatientAge;
+            DBUtilsMedicationHistory.LoadPatientInfo(_patientId);
 
-        //    ClearFields();
-        //    LoadMedications();
-        //}
+            _patientName = GlobalData.CurrentPatientFullName;
+            _patientAge = GlobalData.CurrentPatientAge;
 
-        // =========================
+            ClearFields();
+            LoadMedication();
+        }
+
+        // ============================
         // NAVIGATION
-        // =========================
+        // ============================
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
             Form form = new Form1(this);
             this.Hide();
         }
 
-        private void btnImmunizations_Click(object sender, EventArgs e)
+        //private void btnImmunizations_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form1(this);
+        //    this.Hide();
+        //}
+
+        private void btnGenMedHistory_Click(object sender, EventArgs e)
         {
             Form form = new Form1(this);
             this.Hide();
         }
 
-        private void btnMedications_Click(object sender, EventArgs e)
-        {
-            Form form = new Form1(this);
-            this.Hide();
-        }
-
-        private void btnDemographics_Click(object sender, EventArgs e)
-        {
-            Form form = new Form1(this);
-            this.Hide();
-        }
+        //private void btnDemographics_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form1(this);
+        //    this.Hide();
+        //}
     }
 }

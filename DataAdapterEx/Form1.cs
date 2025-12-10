@@ -154,7 +154,7 @@ namespace DataAdapterEx
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Views.MedicationHistoryForm(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
+            Form form = new Views.MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
         }
 

@@ -56,7 +56,7 @@ namespace DataAdapterEx.Views
             if (dgvHistory.SelectedRows.Count == 0) return;
 
             DataGridViewRow row = dgvHistory.SelectedRows[0];
-            _historyId = Convert.ToInt32(row.Cells["GeneralMedicalHistoryID"].Value);
+            _historyId = Convert.ToInt32(row.Cells["PatientID"].Value);
 
             txtMaritalStatus.Text = row.Cells["MaritalStatus"].Value.ToString();
             txtEducation.Text = row.Cells["Education"].Value.ToString();
