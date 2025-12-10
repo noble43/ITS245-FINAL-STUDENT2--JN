@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_PtDemog = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +108,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_PtDemog);
             this.panel1.Location = new System.Drawing.Point(580, 37);
@@ -117,7 +119,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(10, 102);
+            this.button1.Location = new System.Drawing.Point(15, 103);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 32);
@@ -129,14 +131,25 @@
             // btn_PtDemog
             // 
             this.btn_PtDemog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PtDemog.Location = new System.Drawing.Point(10, 34);
+            this.btn_PtDemog.Location = new System.Drawing.Point(2, 15);
             this.btn_PtDemog.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PtDemog.Name = "btn_PtDemog";
-            this.btn_PtDemog.Size = new System.Drawing.Size(133, 40);
+            this.btn_PtDemog.Size = new System.Drawing.Size(159, 40);
             this.btn_PtDemog.TabIndex = 0;
             this.btn_PtDemog.Text = "Medical History";
             this.btn_PtDemog.UseVisualStyleBackColor = true;
             this.btn_PtDemog.Click += new System.EventHandler(this.btn_PtDemog_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(2, 59);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 40);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Medication History";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -171,6 +184,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_PtDemog;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

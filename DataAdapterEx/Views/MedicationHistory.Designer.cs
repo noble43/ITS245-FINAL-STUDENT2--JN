@@ -29,53 +29,53 @@
             this.btnSelectPatient = new System.Windows.Forms.Button();
             this.btnDemographics = new System.Windows.Forms.Button();
             this.btnImmunizations = new System.Windows.Forms.Button();
-            this.btnMedications = new System.Windows.Forms.Button();
+            this.btnGeneralHistory = new System.Windows.Forms.Button();
             this.groupBoxMedications = new System.Windows.Forms.GroupBox();
-            this.txtMedicationStartDate = new System.Windows.Forms.TextBox();
-            this.lblMedicationStartDate = new System.Windows.Forms.Label();
-            this.txtMedicationEndDate = new System.Windows.Forms.TextBox();
-            this.lblMedicationEndDate = new System.Windows.Forms.Label();
             this.txtPrescriptionHCP = new System.Windows.Forms.TextBox();
             this.lblPrescriptionHCP = new System.Windows.Forms.Label();
+            this.txtMedicationEndDate = new System.Windows.Forms.TextBox();
+            this.lblMedicationEndDate = new System.Windows.Forms.Label();
+            this.txtMedicationStartDate = new System.Windows.Forms.TextBox();
+            this.lblMedicationStartDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedications)).BeginInit();
             this.groupBoxMedications.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvMedications
             // 
-            this.dgvMedications.Location = new System.Drawing.Point(9, 12);
+            this.dgvMedications.Location = new System.Drawing.Point(12, 12);
             this.dgvMedications.MultiSelect = false;
             this.dgvMedications.Name = "dgvMedications";
             this.dgvMedications.ReadOnly = true;
             this.dgvMedications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedications.Size = new System.Drawing.Size(624, 150);
+            this.dgvMedications.Size = new System.Drawing.Size(624, 63);
             this.dgvMedications.TabIndex = 0;
             this.dgvMedications.SelectionChanged += new System.EventHandler(this.dgvMedications_SelectionChanged);
             // 
             // txtMedication
             // 
-            this.txtMedication.Location = new System.Drawing.Point(117, 174);
+            this.txtMedication.Location = new System.Drawing.Point(153, 86);
             this.txtMedication.Name = "txtMedication";
             this.txtMedication.Size = new System.Drawing.Size(100, 20);
             this.txtMedication.TabIndex = 1;
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(117, 214);
+            this.txtAmount.Location = new System.Drawing.Point(153, 126);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(100, 20);
             this.txtAmount.TabIndex = 2;
             // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(117, 254);
+            this.txtUnit.Location = new System.Drawing.Point(153, 166);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(100, 20);
             this.txtUnit.TabIndex = 3;
             // 
             // txtInstructions
             // 
-            this.txtInstructions.Location = new System.Drawing.Point(117, 294);
+            this.txtInstructions.Location = new System.Drawing.Point(153, 206);
             this.txtInstructions.Multiline = true;
             this.txtInstructions.Name = "txtInstructions";
             this.txtInstructions.Size = new System.Drawing.Size(100, 60);
@@ -127,7 +127,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(9, 174);
+            this.label1.Location = new System.Drawing.Point(45, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 9;
@@ -135,7 +135,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(9, 214);
+            this.label2.Location = new System.Drawing.Point(45, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 10;
@@ -143,7 +143,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(9, 254);
+            this.label3.Location = new System.Drawing.Point(45, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 11;
@@ -151,7 +151,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(9, 294);
+            this.label4.Location = new System.Drawing.Point(45, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 12;
@@ -190,16 +190,16 @@
             this.btnImmunizations.UseVisualStyleBackColor = false;
             this.btnImmunizations.Click += new System.EventHandler(this.btnImmunizations_Click);
             // 
-            // btnMedications
+            // btnGeneralHistory
             // 
-            this.btnMedications.BackColor = System.Drawing.Color.Azure;
-            this.btnMedications.Location = new System.Drawing.Point(522, 488);
-            this.btnMedications.Name = "btnMedications";
-            this.btnMedications.Size = new System.Drawing.Size(114, 23);
-            this.btnMedications.TabIndex = 16;
-            this.btnMedications.Text = "Medications";
-            this.btnMedications.UseVisualStyleBackColor = false;
-            this.btnMedications.Click += new System.EventHandler(this.btnMedications_Click);
+            this.btnGeneralHistory.BackColor = System.Drawing.Color.Azure;
+            this.btnGeneralHistory.Location = new System.Drawing.Point(522, 488);
+            this.btnGeneralHistory.Name = "btnGeneralHistory";
+            this.btnGeneralHistory.Size = new System.Drawing.Size(114, 23);
+            this.btnGeneralHistory.TabIndex = 16;
+            this.btnGeneralHistory.Text = "Medical History";
+            this.btnGeneralHistory.UseVisualStyleBackColor = false;
+            this.btnGeneralHistory.Click += new System.EventHandler(this.btnMedications_Click);
             // 
             // groupBoxMedications
             // 
@@ -210,7 +210,6 @@
             this.groupBoxMedications.Controls.Add(this.txtMedicationStartDate);
             this.groupBoxMedications.Controls.Add(this.lblMedicationStartDate);
             this.groupBoxMedications.Controls.Add(this.txtMedication);
-            this.groupBoxMedications.Controls.Add(this.dgvMedications);
             this.groupBoxMedications.Controls.Add(this.txtAmount);
             this.groupBoxMedications.Controls.Add(this.label1);
             this.groupBoxMedications.Controls.Add(this.txtUnit);
@@ -218,56 +217,56 @@
             this.groupBoxMedications.Controls.Add(this.txtInstructions);
             this.groupBoxMedications.Controls.Add(this.label3);
             this.groupBoxMedications.Controls.Add(this.label2);
-            this.groupBoxMedications.Location = new System.Drawing.Point(3, 12);
+            this.groupBoxMedications.Location = new System.Drawing.Point(3, 99);
             this.groupBoxMedications.Name = "groupBoxMedications";
-            this.groupBoxMedications.Size = new System.Drawing.Size(642, 423);
+            this.groupBoxMedications.Size = new System.Drawing.Size(642, 281);
             this.groupBoxMedications.TabIndex = 17;
             this.groupBoxMedications.TabStop = false;
             // 
-            // txtMedicationStartDate
-            // 
-            this.txtMedicationStartDate.Location = new System.Drawing.Point(362, 171);
-            this.txtMedicationStartDate.Name = "txtMedicationStartDate";
-            this.txtMedicationStartDate.Size = new System.Drawing.Size(100, 20);
-            this.txtMedicationStartDate.TabIndex = 13;
-            // 
-            // lblMedicationStartDate
-            // 
-            this.lblMedicationStartDate.Location = new System.Drawing.Point(244, 174);
-            this.lblMedicationStartDate.Name = "lblMedicationStartDate";
-            this.lblMedicationStartDate.Size = new System.Drawing.Size(115, 23);
-            this.lblMedicationStartDate.TabIndex = 14;
-            this.lblMedicationStartDate.Text = "Medication Start Date";
-            // 
-            // txtMedicationEndDate
-            // 
-            this.txtMedicationEndDate.Location = new System.Drawing.Point(362, 214);
-            this.txtMedicationEndDate.Name = "txtMedicationEndDate";
-            this.txtMedicationEndDate.Size = new System.Drawing.Size(100, 20);
-            this.txtMedicationEndDate.TabIndex = 15;
-            // 
-            // lblMedicationEndDate
-            // 
-            this.lblMedicationEndDate.Location = new System.Drawing.Point(244, 214);
-            this.lblMedicationEndDate.Name = "lblMedicationEndDate";
-            this.lblMedicationEndDate.Size = new System.Drawing.Size(115, 23);
-            this.lblMedicationEndDate.TabIndex = 16;
-            this.lblMedicationEndDate.Text = "Medication End Date";
-            // 
             // txtPrescriptionHCP
             // 
-            this.txtPrescriptionHCP.Location = new System.Drawing.Point(362, 251);
+            this.txtPrescriptionHCP.Location = new System.Drawing.Point(398, 163);
             this.txtPrescriptionHCP.Name = "txtPrescriptionHCP";
             this.txtPrescriptionHCP.Size = new System.Drawing.Size(100, 20);
             this.txtPrescriptionHCP.TabIndex = 17;
             // 
             // lblPrescriptionHCP
             // 
-            this.lblPrescriptionHCP.Location = new System.Drawing.Point(244, 251);
+            this.lblPrescriptionHCP.Location = new System.Drawing.Point(280, 163);
             this.lblPrescriptionHCP.Name = "lblPrescriptionHCP";
             this.lblPrescriptionHCP.Size = new System.Drawing.Size(100, 23);
             this.lblPrescriptionHCP.TabIndex = 18;
             this.lblPrescriptionHCP.Text = "Prescription HCP";
+            // 
+            // txtMedicationEndDate
+            // 
+            this.txtMedicationEndDate.Location = new System.Drawing.Point(398, 126);
+            this.txtMedicationEndDate.Name = "txtMedicationEndDate";
+            this.txtMedicationEndDate.Size = new System.Drawing.Size(100, 20);
+            this.txtMedicationEndDate.TabIndex = 15;
+            // 
+            // lblMedicationEndDate
+            // 
+            this.lblMedicationEndDate.Location = new System.Drawing.Point(280, 126);
+            this.lblMedicationEndDate.Name = "lblMedicationEndDate";
+            this.lblMedicationEndDate.Size = new System.Drawing.Size(115, 23);
+            this.lblMedicationEndDate.TabIndex = 16;
+            this.lblMedicationEndDate.Text = "Medication End Date";
+            // 
+            // txtMedicationStartDate
+            // 
+            this.txtMedicationStartDate.Location = new System.Drawing.Point(398, 83);
+            this.txtMedicationStartDate.Name = "txtMedicationStartDate";
+            this.txtMedicationStartDate.Size = new System.Drawing.Size(100, 20);
+            this.txtMedicationStartDate.TabIndex = 13;
+            // 
+            // lblMedicationStartDate
+            // 
+            this.lblMedicationStartDate.Location = new System.Drawing.Point(280, 86);
+            this.lblMedicationStartDate.Name = "lblMedicationStartDate";
+            this.lblMedicationStartDate.Size = new System.Drawing.Size(115, 23);
+            this.lblMedicationStartDate.TabIndex = 14;
+            this.lblMedicationStartDate.Text = "Medication Start Date";
             // 
             // MedicationHistoryForm
             // 
@@ -277,9 +276,10 @@
             this.Controls.Add(this.btnSelectPatient);
             this.Controls.Add(this.btnDemographics);
             this.Controls.Add(this.btnImmunizations);
-            this.Controls.Add(this.btnMedications);
+            this.Controls.Add(this.btnGeneralHistory);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.dgvMedications);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUndo);
             this.Name = "MedicationHistoryForm";
@@ -308,7 +308,7 @@
         private System.Windows.Forms.Button btnSelectPatient;
         private System.Windows.Forms.Button btnDemographics;
         private System.Windows.Forms.Button btnImmunizations;
-        private System.Windows.Forms.Button btnMedications;
+        private System.Windows.Forms.Button btnGeneralHistory;
         private System.Windows.Forms.GroupBox groupBoxMedications;
         private System.Windows.Forms.TextBox txtPrescriptionHCP;
         private System.Windows.Forms.Label lblPrescriptionHCP;
