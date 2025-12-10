@@ -117,10 +117,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 102);
+            this.button1.Location = new System.Drawing.Point(10, 102);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 32);
+            this.button1.Size = new System.Drawing.Size(133, 32);
             this.button1.TabIndex = 1;
             this.button1.Text = "Patient Report";
             this.button1.UseVisualStyleBackColor = true;
@@ -129,12 +129,12 @@
             // btn_PtDemog
             // 
             this.btn_PtDemog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PtDemog.Location = new System.Drawing.Point(18, 35);
+            this.btn_PtDemog.Location = new System.Drawing.Point(10, 34);
             this.btn_PtDemog.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PtDemog.Name = "btn_PtDemog";
-            this.btn_PtDemog.Size = new System.Drawing.Size(125, 40);
+            this.btn_PtDemog.Size = new System.Drawing.Size(133, 40);
             this.btn_PtDemog.TabIndex = 0;
-            this.btn_PtDemog.Text = "Demographics";
+            this.btn_PtDemog.Text = "Medical History";
             this.btn_PtDemog.UseVisualStyleBackColor = true;
             this.btn_PtDemog.Click += new System.EventHandler(this.btn_PtDemog_Click);
             // 

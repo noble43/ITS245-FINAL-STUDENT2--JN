@@ -15,20 +15,23 @@ namespace DataAdapterEx.Views
     public partial class GeneralMedicalHistory : Form
     {
         private int _patientId;
+        private string _patientName;
+        private int _patientAge;
         private int _historyId = -1;
         private bool _isAddMode = false;
 
-        public GeneralMedicalHistory(int patientId, string patientName)
+        public GeneralMedicalHistory(int patientId, string patientName, int patientAge)
         {
             InitializeComponent();
             _patientId = patientId;
-            lblPatientHeader.Text = $"{patientName} | Age: XX ";
+            _patientName = patientName;
+            _patientAge = patientAge;
             SetEditMode(false);
-        }
-
-        private void GeneralMedicalHistory_Load(object sender, EventArgs e)
-        {
-            LoadHistory();
+            if (_patientId != 0)
+            {
+                LoadHistory();
+            }
+            dgvHistory.AllowUserToAddRows = false;
         }
 
         // ============================
@@ -41,6 +44,7 @@ namespace DataAdapterEx.Views
                 DataTable dt = DBUtilsGeneralMedicalHistory.GetByPatientId(conn, _patientId);
                 dgvHistory.DataSource = dt;
             }
+            lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
             SetEditMode(false);
         }
 
@@ -248,6 +252,22 @@ namespace DataAdapterEx.Views
             txtNotes.Clear();
             txtHxBy.Clear();
         }
+
+        private bool PatientExists(int patientId)
+        {
+            using (MySqlConnection conn = DBUtilsGeneralMedicalHistory.MakeConnection())
+            {
+                string query = "SELECT COUNT(*) FROM patientdemographics WHERE PatientID = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", patientId);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
         private void btnPatientIDSelect_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtPatientIDSelect.Text))
@@ -267,7 +287,18 @@ namespace DataAdapterEx.Views
                     MessageBox.Show("Invalid Patient ID format. Please enter a valid integer.");
                     return;
                 }
+                if (!PatientExists(_patientId))
+                {
+                    MessageBox.Show("No patient found with that ID.");
+                    return;
+                }
             }
+
+            DBUtilsGeneralMedicalHistory.LoadPatientInfo(_patientId);
+
+            _patientName = GlobalData.CurrentPatientFullName;
+            _patientAge = GlobalData.CurrentPatientAge;
+
             ClearFields();
             LoadHistory();
         }

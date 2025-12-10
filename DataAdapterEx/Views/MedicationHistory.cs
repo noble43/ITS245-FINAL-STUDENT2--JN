@@ -34,8 +34,7 @@ namespace DataAdapterEx.Views
         private void LoadMedications()
         {
             var conn = DBUtilsMedicationHistory.MakeConnection();
-            dgvMedications.DataSource =
-                DBUtilsMedicationHistory.GetByPatientId(conn, _patientId);
+            dgvMedications.DataSource = DBUtilsMedicationHistory.GetByPatientId(conn, _patientId);
         }
 
         // =========================

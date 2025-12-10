@@ -79,7 +79,8 @@ namespace DataAdapterEx
                         using (MySqlConnection conn = new MySqlConnection(connStr))
                         {
                             conn.Open();
-                            string query = "SELECT PatientID, PtLastName FROM patientdemographics WHERE `PtHomePhone` = @Phone LIMIT 1";
+                            string query = "SELECT PatientID, PtLastName, DOB " +
+                                "FROM patientdemographics WHERE `PtHomePhone` = @Phone LIMIT 1";
                             using (MySqlCommand cmd = new MySqlCommand(query, conn))
                             {
                                 cmd.Parameters.AddWithValue("@Phone", homePhone);
@@ -90,9 +91,15 @@ namespace DataAdapterEx
                                     {
                                         int patientID = reader.GetInt32("PatientID");
 
+                                        DateTime dob = reader["DOB"] == DBNull.Value
+                                            ? DateTime.MinValue
+                                            : Convert.ToDateTime(reader["DOB"]);
+
                                         // Update global variable and labels
                                         GlobalData.CurrentPatientID = patientID;
-                                        GlobalData.CurrentPatientName = firstNameFromGrid + " " + lastNameFromGrid;
+                                        GlobalData.CurrentPatientFullName = firstNameFromGrid + " " + lastNameFromGrid;
+                                        GlobalData.CurrentPatientDOB = dob;
+                                        GlobalData.CurrentPatientAge = GlobalData.CurrentPatientDOB == DateTime.MinValue ? 0 : DateTime.Now.Year - GlobalData.CurrentPatientDOB.Year;
                                         lbl_PID.Text = patientID.ToString();
                                         lbl_lastName.Text = lastNameFromGrid;
                                     }
@@ -126,7 +133,7 @@ namespace DataAdapterEx
 
         private void btn_PtDemog_Click(object sender, EventArgs e)
         {
-            Form form = new Views.GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientName);
+            Form form = new Views.GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
         }
 

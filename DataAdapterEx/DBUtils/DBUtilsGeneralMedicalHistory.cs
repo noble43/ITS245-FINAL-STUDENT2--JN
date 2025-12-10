@@ -11,7 +11,6 @@ namespace DataAdapterEx.DBUtils
 {
     public static class DBUtilsGeneralMedicalHistory
     {
-        // ✅ SAME connection format as DBUtilsPatient
         public static MySqlConnection MakeConnection()
         {
             string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
@@ -20,7 +19,6 @@ namespace DataAdapterEx.DBUtils
             return conn;
         }
 
-        // ✅ SAME DataTable + Adapter Pattern
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
@@ -35,7 +33,52 @@ namespace DataAdapterEx.DBUtils
             da.Fill(dt);
             return dt;
         }
-        // ✅ UPDATE EXISTING HISTORY RECORD
+
+        public static void LoadPatientInfo(int patientId)
+        {
+            using (MySqlConnection conn = MakeConnection())
+            {
+                string query = @"SELECT PtFirstName, PtLastName, PtMiddleInitial, DOB 
+                         FROM patientdemographics 
+                         WHERE PatientID = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", patientId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string first = reader["PtFirstName"]?.ToString();
+                            string last = reader["PtLastName"]?.ToString();
+                            string mi = reader["PtMiddleInitial"]?.ToString();
+                            DateTime dob = Convert.ToDateTime(reader["DOB"]);
+
+                            GlobalData.CurrentPatientFullName =
+                                $"{last}, {first} {mi}".Trim();
+
+                            GlobalData.CurrentPatientDOB = dob;
+                            GlobalData.CurrentPatientAge = CalculateAge(dob);
+                        }
+                        else
+                        {
+                            throw new Exception("Patient not found in database.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private static int CalculateAge(DateTime dob)
+        {
+            int age = DateTime.Today.Year - dob.Year;
+            if (dob > DateTime.Today.AddYears(-age))
+                age--;
+            return age;
+        }
+
+
         public static void UpdateHistory(
             MySqlConnection conn,
             int historyId,
@@ -109,7 +152,6 @@ namespace DataAdapterEx.DBUtils
             cmd.ExecuteNonQuery();
         }
 
-        // ✅ INSERT (non–stored procedure)
         public static void InsertHistory(
             MySqlConnection conn,
             int patientId,
@@ -190,7 +232,6 @@ namespace DataAdapterEx.DBUtils
             cmd.ExecuteNonQuery();
         }
 
-        // ✅ SOFT DELETE (matches your project rule)
         public static void DeleteHistory(MySqlConnection conn, int id)
         {
             string sql =
