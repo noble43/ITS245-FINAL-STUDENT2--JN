@@ -23,7 +23,10 @@ namespace DataAdapterEx.DBUtils
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
-                "SELECT * " +
+                "SELECT PatientID, MaritalStatus, Education, BehavioralHistory, Tobacco, " +
+                "TobaccoQuantity, TobaccoDuraton, Alcohol, AlcoholQuantity, AlcoholDuration, " +
+                "Drug, DrugType, DrugDuration, Dietary, BloodType, Rh, NumberOfChildren, LMPStatus, " +
+                "MensesMonthlyYes, MensesMonthlyNo, MensesFreq, MedicalHistoryNotes, HxObtainedByd " +
                 "FROM generalmedicalhistory " +
                 "WHERE PatientID=@pid AND deleted=false";
 

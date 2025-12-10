@@ -270,21 +270,9 @@
             // 
             // MedicationHistoryForm
             // 
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(648, 524);
-            this.Controls.Add(this.groupBoxMedications);
-            this.Controls.Add(this.btnSelectPatient);
-            this.Controls.Add(this.btnDemographics);
-            this.Controls.Add(this.btnImmunizations);
-            this.Controls.Add(this.btnGeneralHistory);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dgvMedications);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUndo);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "MedicationHistoryForm";
             this.Text = "Medication History";
-            this.Load += new System.EventHandler(this.MedicationHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedications)).EndInit();
             this.groupBoxMedications.ResumeLayout(false);
             this.groupBoxMedications.PerformLayout();
@@ -316,5 +304,8 @@
         private System.Windows.Forms.Label lblMedicationEndDate;
         private System.Windows.Forms.TextBox txtMedicationStartDate;
         private System.Windows.Forms.Label lblMedicationStartDate;
+        private System.Windows.Forms.Button btnPatientIDSelect;
+        private System.Windows.Forms.TextBox txtPatientIDSelect;
+        private System.Windows.Forms.Label lblPatientIDSelect;
     }
 }

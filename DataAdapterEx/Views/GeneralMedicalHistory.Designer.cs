@@ -78,7 +78,6 @@
             this.lblBehavioral = new System.Windows.Forms.Label();
             this.lblEducation = new System.Windows.Forms.Label();
             this.lblMaritalStatus = new System.Windows.Forms.Label();
-            this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.txtMaritalStatus = new System.Windows.Forms.TextBox();
             this.txtEducation = new System.Windows.Forms.TextBox();
             this.txtBehavioral = new System.Windows.Forms.TextBox();
@@ -101,6 +100,7 @@
             this.txtMensesFreq = new System.Windows.Forms.TextBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.txtHxBy = new System.Windows.Forms.TextBox();
+            this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -379,17 +379,6 @@
             this.lblMaritalStatus.TabIndex = 23;
             this.lblMaritalStatus.Text = "Marital Status";
             // 
-            // dgvHistory
-            // 
-            this.dgvHistory.Location = new System.Drawing.Point(21, 43);
-            this.dgvHistory.MultiSelect = false;
-            this.dgvHistory.Name = "dgvHistory";
-            this.dgvHistory.ReadOnly = true;
-            this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistory.Size = new System.Drawing.Size(740, 69);
-            this.dgvHistory.TabIndex = 0;
-            this.dgvHistory.SelectionChanged += new System.EventHandler(this.dgvHistory_SelectionChanged);
-            // 
             // txtMaritalStatus
             // 
             this.txtMaritalStatus.Location = new System.Drawing.Point(107, 15);
@@ -547,6 +536,17 @@
             this.txtHxBy.Size = new System.Drawing.Size(230, 20);
             this.txtHxBy.TabIndex = 22;
             // 
+            // dgvHistory
+            // 
+            this.dgvHistory.Location = new System.Drawing.Point(21, 43);
+            this.dgvHistory.MultiSelect = false;
+            this.dgvHistory.Name = "dgvHistory";
+            this.dgvHistory.ReadOnly = true;
+            this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHistory.Size = new System.Drawing.Size(740, 69);
+            this.dgvHistory.TabIndex = 0;
+            this.dgvHistory.SelectionChanged += new System.EventHandler(this.dgvHistory_SelectionChanged);
+            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Azure;
@@ -561,7 +561,7 @@
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.Color.Azure;
-            this.btnModify.Location = new System.Drawing.Point(98, 478);
+            this.btnModify.Location = new System.Drawing.Point(101, 478);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 3;
@@ -572,7 +572,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Azure;
-            this.btnSave.Location = new System.Drawing.Point(188, 478);
+            this.btnSave.Location = new System.Drawing.Point(182, 478);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
@@ -583,7 +583,7 @@
             // btnUndo
             // 
             this.btnUndo.BackColor = System.Drawing.Color.Azure;
-            this.btnUndo.Location = new System.Drawing.Point(278, 478);
+            this.btnUndo.Location = new System.Drawing.Point(263, 478);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 5;
@@ -643,7 +643,7 @@
             // 
             // txtPatientIDSelect
             // 
-            this.txtPatientIDSelect.Location = new System.Drawing.Point(115, 515);
+            this.txtPatientIDSelect.Location = new System.Drawing.Point(111, 515);
             this.txtPatientIDSelect.Name = "txtPatientIDSelect";
             this.txtPatientIDSelect.Size = new System.Drawing.Size(58, 20);
             this.txtPatientIDSelect.TabIndex = 43;
@@ -651,7 +651,7 @@
             // btnPatientIDSelect
             // 
             this.btnPatientIDSelect.BackColor = System.Drawing.Color.Azure;
-            this.btnPatientIDSelect.Location = new System.Drawing.Point(188, 513);
+            this.btnPatientIDSelect.Location = new System.Drawing.Point(182, 513);
             this.btnPatientIDSelect.Name = "btnPatientIDSelect";
             this.btnPatientIDSelect.Size = new System.Drawing.Size(75, 23);
             this.btnPatientIDSelect.TabIndex = 44;
@@ -662,7 +662,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Azure;
-            this.btnDelete.Location = new System.Drawing.Point(368, 478);
+            this.btnDelete.Location = new System.Drawing.Point(344, 478);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 6;
