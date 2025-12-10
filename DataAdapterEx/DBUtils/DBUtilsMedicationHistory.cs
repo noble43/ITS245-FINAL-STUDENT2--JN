@@ -10,20 +10,19 @@ namespace DataAdapterEx.DBUtils
 {
     public static class DBUtilsMedicationHistory
     {
-        // ✅ SAME connection format
         public static MySqlConnection MakeConnection()
         {
-            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
+            //Home Password: toor
+            string connStr = "server=localhost;uid=root;pwd=password;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             return conn;
         }
 
-        // ✅ SAME DataAdapter → DataTable workflow
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
-                "SELECT MedicationID, Medication, MedicationAmt, MedicationUnit " +
+                "SELECT Medication" +
                 "FROM patientmedications " +
                 "WHERE PatientID=@pid AND deleted=false";
 
@@ -35,30 +34,110 @@ namespace DataAdapterEx.DBUtils
             return dt;
         }
 
-        // ✅ INSERT record
         public static void InsertMedication(
             MySqlConnection conn,
             int patientId,
             string medication,
             string amount,
             string unit,
-            string instructions)
+            string instructions,
+            string StartDate,
+            string EndDate,
+            string HCP)
         {
             string sql =
                 "INSERT INTO patientmedications " +
-                "(PatientID, Medication, MedicationAmt, MedicationUnit, Instructions) " +
-                "VALUES (@pid, @med, @amt, @unit, @inst)";
+                "(PatientID, Medication, MedicationAmt, MedicationUnit, Instructions, MedicationStartDate, MedicationEndDate, PrescriptionHCP) " +
+                "VALUES (@pid, @med, @amt, @unit, @inst, @start, @end, @hcp)";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@pid", patientId);
             cmd.Parameters.AddWithValue("@med", medication);
-            cmd.Parameters.AddWithValue("@amt", amount);
+            cmd.Parameters.AddWithValue("@amt", amount); 
             cmd.Parameters.AddWithValue("@unit", unit);
             cmd.Parameters.AddWithValue("@inst", instructions);
+            cmd.Parameters.AddWithValue("@start", instructions);
+            cmd.Parameters.AddWithValue("@end", instructions);
+            cmd.Parameters.AddWithValue("@hcp", HCP);
             cmd.ExecuteNonQuery();
         }
 
-        // ✅ SOFT DELETE
+        public static void LoadPatientInfo(int patientId)
+        {
+            using (MySqlConnection conn = MakeConnection())
+            {
+                string query = @"SELECT PtFirstName, PtLastName, PtMiddleInitial, DOB 
+                         FROM patientdemographics 
+                         WHERE PatientID = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", patientId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string first = reader["PtFirstName"]?.ToString();
+                            string last = reader["PtLastName"]?.ToString();
+                            string mi = reader["PtMiddleInitial"]?.ToString();
+                            DateTime dob = Convert.ToDateTime(reader["DOB"]);
+
+                            GlobalData.CurrentPatientFullName =
+                                $"{last}, {first} {mi}".Trim();
+
+                            GlobalData.CurrentPatientDOB = dob;
+                            GlobalData.CurrentPatientAge = CalculateAge(dob);
+                        }
+                        else
+                        {
+                            throw new Exception("Patient not found in database.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private static int CalculateAge(DateTime dob)
+        {
+            int age = DateTime.Today.Year - dob.Year;
+            if (dob > DateTime.Today.AddYears(-age))
+                age--;
+            return age;
+        }
+
+        public static void UpdateMedication(
+            MySqlConnection conn,
+            int medicationID,
+            string medication,
+            string amount,
+            string unit,
+            string instructions,
+            string startDate,
+            string endDate,
+            string HCP)
+        {
+            string sql =
+                "UPDATE generalmedicalhistory SET " +
+                "medication=@med, MedicationAmt=@amt, MedicationUnit=@unit, " +
+                "Instructions=@inst, MedicationStartDate=@start, MedicationEndDate=@end, PrescriptionHCP=@hcp" +
+                "WHERE MedicationID=@id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@id", medicationID);
+
+            cmd.Parameters.AddWithValue("@amt", amount);
+            cmd.Parameters.AddWithValue("@unit", unit);
+            cmd.Parameters.AddWithValue("@inst", instructions);
+
+            cmd.Parameters.AddWithValue("@start", startDate);
+            cmd.Parameters.AddWithValue("@end", endDate);
+            cmd.Parameters.AddWithValue("@hcp", HCP);
+
+            cmd.ExecuteNonQuery();
+        }
+
         public static void DeleteMedication(MySqlConnection conn, int id)
         {
             string sql =

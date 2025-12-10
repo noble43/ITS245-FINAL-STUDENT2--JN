@@ -13,7 +13,8 @@ namespace DataAdapterEx.Models
 {
     public class PatientReport
     {
-        private string connectionString = "server=localhost;database=patientdb;uid=root;pwd=toor;";
+        //Home Password: toor
+        private string connectionString = "server=localhost;database=patientdb;uid=root;pwd=password;";
 
         /// <summary>
         /// Generates a text report for the patient with the given PatientID.

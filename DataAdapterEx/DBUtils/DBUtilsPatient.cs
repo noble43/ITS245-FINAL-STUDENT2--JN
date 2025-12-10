@@ -11,15 +11,14 @@ namespace DataAdapterEx.DBUtils
 {
     public static class DBUtilsPatient
     {
-        // ✅ DO NOT auto-open connection (prevents "already open" errors)
         public static MySqlConnection MakeConnection()
         {
-            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
+            //Home Password: toor
+            string connStr = "server=localhost;uid=root;pwd=password;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             return conn;
         }
 
-        // ✅ STORED PROCEDURE: GetAllPatientsSP
         public static DataTable GetAllPatientsSP(MySqlConnection conn)
         {
             MySqlCommand cmd = new MySqlCommand("GetAllPatientsSP", conn);
@@ -32,7 +31,6 @@ namespace DataAdapterEx.DBUtils
             return dt;
         }
 
-        // ✅ STORED PROCEDURE: GetPatientByIdSP
         public static DataTable GetPatientByIdSP(MySqlConnection conn, int pid)
         {
             MySqlCommand cmd = new MySqlCommand("GetPatientByIdSP", conn);
@@ -46,7 +44,6 @@ namespace DataAdapterEx.DBUtils
             return dt;
         }
 
-        // ✅ STORED PROCEDURE: InsertPatientSP
         public static void InsertPatientSP(MySqlConnection conn, Patient patient)
         {
             MySqlCommand cmd = new MySqlCommand("InsertPatientSP", conn);
