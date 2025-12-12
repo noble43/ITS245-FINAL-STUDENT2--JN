@@ -10,6 +10,14 @@ namespace DataAdapterEx.DBUtils
 {
     public class DBUtilsLogin
     {
+        public static MySqlConnection MakeConnection()
+        {
+            //Home Password: toor
+            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            return conn;
+        }
 
         public static DataTable AuthenticateUser(MySqlConnection conn, string username, string password)
         {

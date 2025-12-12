@@ -257,16 +257,16 @@ namespace DataAdapterEx.Views
         // ============================
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
-            Form form = new Form1(this);
+            Form form = new SelectPatientForm();
             form.Show();
             this.Hide();
         }
 
-        //private void btnImmunizations_Click(object sender, EventArgs e)
-        //{
-        //    Form form = new Form1(this);
-        //    this.Hide();
-        //}
+        private void btnImmunizations_Click(object sender, EventArgs e)
+        {
+            Form form = new ImmunizationHistoryForm(_patientId);
+            this.Hide();
+        }
 
         private void btnGenMedHistory_Click(object sender, EventArgs e)
         {
@@ -275,10 +275,11 @@ namespace DataAdapterEx.Views
             this.Hide();
         }
 
-        //private void btnDemographics_Click(object sender, EventArgs e)
-        //{
-        //    Form form = new Form1(this);
-        //    this.Hide();
-        //}
+        private void btnDemographics_Click(object sender, EventArgs e)
+        {
+            Form form = new PatientDemographicsForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

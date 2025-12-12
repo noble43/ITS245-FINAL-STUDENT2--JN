@@ -66,7 +66,7 @@
             this.dgvMedication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedication.Location = new System.Drawing.Point(12, 43);
             this.dgvMedication.Name = "dgvMedication";
-            this.dgvMedication.Size = new System.Drawing.Size(176, 303);
+            this.dgvMedication.Size = new System.Drawing.Size(157, 246);
             this.dgvMedication.TabIndex = 0;
             this.dgvMedication.SelectionChanged += new System.EventHandler(this.dgvMedication_SelectionChanged);
             // 
@@ -77,7 +77,7 @@
             this.lblPatientHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblPatientHeader.Location = new System.Drawing.Point(0, 0);
             this.lblPatientHeader.Name = "lblPatientHeader";
-            this.lblPatientHeader.Size = new System.Drawing.Size(718, 40);
+            this.lblPatientHeader.Size = new System.Drawing.Size(683, 40);
             this.lblPatientHeader.TabIndex = 1;
             this.lblPatientHeader.Text = "Patient Name | Age: XX";
             this.lblPatientHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             this.groupBoxMedication.Controls.Add(this.lblAmount);
             this.groupBoxMedication.Controls.Add(this.txtMedication);
             this.groupBoxMedication.Controls.Add(this.lblMedication);
-            this.groupBoxMedication.Location = new System.Drawing.Point(201, 43);
+            this.groupBoxMedication.Location = new System.Drawing.Point(175, 43);
             this.groupBoxMedication.Name = "groupBoxMedication";
             this.groupBoxMedication.Size = new System.Drawing.Size(503, 246);
             this.groupBoxMedication.TabIndex = 41;
@@ -220,7 +220,7 @@
             // btnPatientIDSelect
             // 
             this.btnPatientIDSelect.BackColor = System.Drawing.Color.Azure;
-            this.btnPatientIDSelect.Location = new System.Drawing.Point(201, 387);
+            this.btnPatientIDSelect.Location = new System.Drawing.Point(175, 341);
             this.btnPatientIDSelect.Name = "btnPatientIDSelect";
             this.btnPatientIDSelect.Size = new System.Drawing.Size(75, 23);
             this.btnPatientIDSelect.TabIndex = 56;
@@ -230,7 +230,7 @@
             // 
             // txtPatientIDSelect
             // 
-            this.txtPatientIDSelect.Location = new System.Drawing.Point(130, 389);
+            this.txtPatientIDSelect.Location = new System.Drawing.Point(104, 343);
             this.txtPatientIDSelect.Name = "txtPatientIDSelect";
             this.txtPatientIDSelect.Size = new System.Drawing.Size(58, 20);
             this.txtPatientIDSelect.TabIndex = 54;
@@ -238,7 +238,7 @@
             // lblPatientIDSelect
             // 
             this.lblPatientIDSelect.AutoSize = true;
-            this.lblPatientIDSelect.Location = new System.Drawing.Point(37, 392);
+            this.lblPatientIDSelect.Location = new System.Drawing.Point(11, 346);
             this.lblPatientIDSelect.Name = "lblPatientIDSelect";
             this.lblPatientIDSelect.Size = new System.Drawing.Size(87, 13);
             this.lblPatientIDSelect.TabIndex = 55;
@@ -247,7 +247,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Azure;
-            this.btnAdd.Location = new System.Drawing.Point(39, 352);
+            this.btnAdd.Location = new System.Drawing.Point(13, 306);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 45;
@@ -258,7 +258,7 @@
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.Color.Azure;
-            this.btnModify.Location = new System.Drawing.Point(120, 352);
+            this.btnModify.Location = new System.Drawing.Point(94, 306);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 46;
@@ -269,7 +269,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Azure;
-            this.btnSave.Location = new System.Drawing.Point(201, 352);
+            this.btnSave.Location = new System.Drawing.Point(175, 306);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 47;
@@ -280,7 +280,7 @@
             // btnUndo
             // 
             this.btnUndo.BackColor = System.Drawing.Color.Azure;
-            this.btnUndo.Location = new System.Drawing.Point(282, 352);
+            this.btnUndo.Location = new System.Drawing.Point(256, 306);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 48;
@@ -291,7 +291,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Azure;
-            this.btnDelete.Location = new System.Drawing.Point(363, 352);
+            this.btnDelete.Location = new System.Drawing.Point(337, 306);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 49;
@@ -302,7 +302,7 @@
             // btnSelectPatient
             // 
             this.btnSelectPatient.BackColor = System.Drawing.Color.Azure;
-            this.btnSelectPatient.Location = new System.Drawing.Point(470, 352);
+            this.btnSelectPatient.Location = new System.Drawing.Point(444, 306);
             this.btnSelectPatient.Name = "btnSelectPatient";
             this.btnSelectPatient.Size = new System.Drawing.Size(114, 23);
             this.btnSelectPatient.TabIndex = 50;
@@ -312,27 +312,29 @@
             // btnDemographics
             // 
             this.btnDemographics.BackColor = System.Drawing.Color.Azure;
-            this.btnDemographics.Location = new System.Drawing.Point(470, 382);
+            this.btnDemographics.Location = new System.Drawing.Point(444, 336);
             this.btnDemographics.Name = "btnDemographics";
             this.btnDemographics.Size = new System.Drawing.Size(114, 23);
             this.btnDemographics.TabIndex = 51;
             this.btnDemographics.Text = "Demographics";
             this.btnDemographics.UseVisualStyleBackColor = false;
+            this.btnDemographics.Click += new System.EventHandler(this.btnDemographics_Click);
             // 
             // btnImmunizations
             // 
             this.btnImmunizations.BackColor = System.Drawing.Color.Azure;
-            this.btnImmunizations.Location = new System.Drawing.Point(590, 352);
+            this.btnImmunizations.Location = new System.Drawing.Point(564, 306);
             this.btnImmunizations.Name = "btnImmunizations";
             this.btnImmunizations.Size = new System.Drawing.Size(114, 23);
             this.btnImmunizations.TabIndex = 52;
             this.btnImmunizations.Text = "Immunizations";
             this.btnImmunizations.UseVisualStyleBackColor = false;
+            this.btnImmunizations.Click += new System.EventHandler(this.btnImmunizations_Click);
             // 
             // btnGenMedHistory
             // 
             this.btnGenMedHistory.BackColor = System.Drawing.Color.Azure;
-            this.btnGenMedHistory.Location = new System.Drawing.Point(590, 382);
+            this.btnGenMedHistory.Location = new System.Drawing.Point(564, 336);
             this.btnGenMedHistory.Name = "btnGenMedHistory";
             this.btnGenMedHistory.Size = new System.Drawing.Size(114, 23);
             this.btnGenMedHistory.TabIndex = 53;
@@ -345,7 +347,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(718, 450);
+            this.ClientSize = new System.Drawing.Size(683, 364);
             this.Controls.Add(this.btnPatientIDSelect);
             this.Controls.Add(this.txtPatientIDSelect);
             this.Controls.Add(this.lblPatientIDSelect);

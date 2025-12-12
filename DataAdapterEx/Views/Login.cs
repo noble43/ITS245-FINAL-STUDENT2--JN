@@ -33,7 +33,7 @@ namespace DataAdapterEx.Views
                 return;
             }
 
-            using (conn = DBUtilsPatient.MakeConnection())
+            using (conn = DBUtilsLogin.MakeConnection())
             {
                 try
                 {
@@ -52,8 +52,8 @@ namespace DataAdapterEx.Views
                         MessageBox.Show("Login successful!");
 
                         // Open main Select Patient form
-                        Form f = new Form1(this);
-                        f.Show();
+                        Form form = new SelectPatientForm();
+                        form.Show();
                         this.Hide();
                     }
                     else

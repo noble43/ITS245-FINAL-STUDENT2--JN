@@ -95,32 +95,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBUtils\DBUtilsAllergies.cs" />
     <Compile Include="DBUtils\DBUtilsGeneralMedicalHistory.cs" />
     <Compile Include="DBUtils\DBUtilsLogin.cs" />
     <Compile Include="DBUtils\DBUtilsMedicationHistory.cs" />
-    <Compile Include="DBUtils\DBUtilsPatient.cs" />
     <Compile Include="DBUtils\DBUtilsPatientReport.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Models\FileLog.cs" />
+    <Compile Include="SelectPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SelectPatientForm.Designer.cs">
+      <DependentUpon>SelectPatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
-    <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientReport.cs" />
-    <Compile Include="Views\Allergies.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Allergies.Designer.cs">
-      <DependentUpon>Allergies.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\GeneralMedicalHistory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\GeneralMedicalHistory.Designer.cs">
       <DependentUpon>GeneralMedicalHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImmunizationHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ImmunizationHistoryForm.Designer.cs">
+      <DependentUpon>ImmunizationHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -142,8 +140,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="SelectPatientForm.resx">
+      <DependentUpon>SelectPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,11 +152,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Allergies.resx">
-      <DependentUpon>Allergies.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\GeneralMedicalHistory.resx">
       <DependentUpon>GeneralMedicalHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImmunizationHistoryForm.resx">
+      <DependentUpon>ImmunizationHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

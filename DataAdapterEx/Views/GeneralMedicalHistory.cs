@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAdapterEx.Models;
+using DataAdapterEx.Views;
 
 namespace DataAdapterEx.Views
 {
@@ -310,28 +312,29 @@ namespace DataAdapterEx.Views
         // ============================
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
-            Form form = new Form1(this);
+            Form form = new SelectPatientForm();
             form.Show();
             this.Hide();
         }
 
-        //private void btnImmunizations_Click(object sender, EventArgs e)
-        //{
-        //    Form form = new Form1(this);
-        //    this.Hide();
-        //}
+        private void btnImmunizations_Click(object sender, EventArgs e)
+        {
+            Form form = new ImmunizationHistoryForm(_patientId);
+            this.Hide();
+        }
 
         private void btnMedications_Click(object sender, EventArgs e)
         {
-            Form form = new Views.MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
+            Form form = new MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
             this.Hide();
         }
 
-        //private void btnDemographics_Click(object sender, EventArgs e)
-        //{
-        //    Form form = new Form1(this);
-        //    this.Hide();
-        //}
+        private void btnDemographics_Click(object sender, EventArgs e)
+        {
+            Form form = new PatientDemographicsForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

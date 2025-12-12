@@ -611,6 +611,7 @@
             this.btnDemographics.TabIndex = 8;
             this.btnDemographics.Text = "Demographics";
             this.btnDemographics.UseVisualStyleBackColor = false;
+            this.btnDemographics.Click += new System.EventHandler(this.btnDemographics_Click);
             // 
             // btnImmunizations
             // 
@@ -621,6 +622,7 @@
             this.btnImmunizations.TabIndex = 9;
             this.btnImmunizations.Text = "Immunizations";
             this.btnImmunizations.UseVisualStyleBackColor = false;
+            this.btnImmunizations.Click += new System.EventHandler(this.btnImmunizations_Click);
             // 
             // btnMedications
             // 
