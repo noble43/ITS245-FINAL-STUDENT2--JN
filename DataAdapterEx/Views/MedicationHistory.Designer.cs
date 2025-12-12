@@ -42,8 +42,9 @@
             this.txtStartDate = new System.Windows.Forms.TextBox();
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.groupBoxMedication = new System.Windows.Forms.GroupBox();
-            this.lblHCP = new System.Windows.Forms.Label();
+            this.txtInstructions = new System.Windows.Forms.TextBox();
             this.txtHCP = new System.Windows.Forms.TextBox();
+            this.lblHCP = new System.Windows.Forms.Label();
             this.btnPatientIDSelect = new System.Windows.Forms.Button();
             this.txtPatientIDSelect = new System.Windows.Forms.TextBox();
             this.lblPatientIDSelect = new System.Windows.Forms.Label();
@@ -55,8 +56,7 @@
             this.btnSelectPatient = new System.Windows.Forms.Button();
             this.btnDemographics = new System.Windows.Forms.Button();
             this.btnImmunizations = new System.Windows.Forms.Button();
-            this.btnMedications = new System.Windows.Forms.Button();
-            this.txtInstructions = new System.Windows.Forms.TextBox();
+            this.btnGenMedHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedication)).BeginInit();
             this.groupBoxMedication.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,7 @@
             this.dgvMedication.Name = "dgvMedication";
             this.dgvMedication.Size = new System.Drawing.Size(176, 303);
             this.dgvMedication.TabIndex = 0;
+            this.dgvMedication.SelectionChanged += new System.EventHandler(this.dgvMedication_SelectionChanged);
             // 
             // lblPatientHeader
             // 
@@ -192,6 +193,21 @@
             this.groupBoxMedication.TabIndex = 41;
             this.groupBoxMedication.TabStop = false;
             // 
+            // txtInstructions
+            // 
+            this.txtInstructions.Location = new System.Drawing.Point(269, 51);
+            this.txtInstructions.Multiline = true;
+            this.txtInstructions.Name = "txtInstructions";
+            this.txtInstructions.Size = new System.Drawing.Size(228, 81);
+            this.txtInstructions.TabIndex = 43;
+            // 
+            // txtHCP
+            // 
+            this.txtHCP.Location = new System.Drawing.Point(124, 170);
+            this.txtHCP.Name = "txtHCP";
+            this.txtHCP.Size = new System.Drawing.Size(113, 20);
+            this.txtHCP.TabIndex = 42;
+            // 
             // lblHCP
             // 
             this.lblHCP.AutoSize = true;
@@ -200,13 +216,6 @@
             this.lblHCP.Size = new System.Drawing.Size(87, 13);
             this.lblHCP.TabIndex = 41;
             this.lblHCP.Text = "Prescription HCP";
-            // 
-            // txtHCP
-            // 
-            this.txtHCP.Location = new System.Drawing.Point(124, 170);
-            this.txtHCP.Name = "txtHCP";
-            this.txtHCP.Size = new System.Drawing.Size(113, 20);
-            this.txtHCP.TabIndex = 42;
             // 
             // btnPatientIDSelect
             // 
@@ -217,6 +226,7 @@
             this.btnPatientIDSelect.TabIndex = 56;
             this.btnPatientIDSelect.Text = "Load Patient";
             this.btnPatientIDSelect.UseVisualStyleBackColor = false;
+            this.btnPatientIDSelect.Click += new System.EventHandler(this.btnPatientIDSelect_Click);
             // 
             // txtPatientIDSelect
             // 
@@ -243,6 +253,7 @@
             this.btnAdd.TabIndex = 45;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnModify
             // 
@@ -253,6 +264,7 @@
             this.btnModify.TabIndex = 46;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnSave
             // 
@@ -263,6 +275,7 @@
             this.btnSave.TabIndex = 47;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnUndo
             // 
@@ -273,6 +286,7 @@
             this.btnUndo.TabIndex = 48;
             this.btnUndo.Text = "Undo";
             this.btnUndo.UseVisualStyleBackColor = false;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnDelete
             // 
@@ -283,6 +297,7 @@
             this.btnDelete.TabIndex = 49;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSelectPatient
             // 
@@ -314,23 +329,16 @@
             this.btnImmunizations.Text = "Immunizations";
             this.btnImmunizations.UseVisualStyleBackColor = false;
             // 
-            // btnMedications
+            // btnGenMedHistory
             // 
-            this.btnMedications.BackColor = System.Drawing.Color.Azure;
-            this.btnMedications.Location = new System.Drawing.Point(590, 382);
-            this.btnMedications.Name = "btnMedications";
-            this.btnMedications.Size = new System.Drawing.Size(114, 23);
-            this.btnMedications.TabIndex = 53;
-            this.btnMedications.Text = "Medications";
-            this.btnMedications.UseVisualStyleBackColor = false;
-            // 
-            // txtInstructions
-            // 
-            this.txtInstructions.Location = new System.Drawing.Point(269, 51);
-            this.txtInstructions.Multiline = true;
-            this.txtInstructions.Name = "txtInstructions";
-            this.txtInstructions.Size = new System.Drawing.Size(228, 81);
-            this.txtInstructions.TabIndex = 43;
+            this.btnGenMedHistory.BackColor = System.Drawing.Color.Azure;
+            this.btnGenMedHistory.Location = new System.Drawing.Point(590, 382);
+            this.btnGenMedHistory.Name = "btnGenMedHistory";
+            this.btnGenMedHistory.Size = new System.Drawing.Size(114, 23);
+            this.btnGenMedHistory.TabIndex = 53;
+            this.btnGenMedHistory.Text = "General History";
+            this.btnGenMedHistory.UseVisualStyleBackColor = false;
+            this.btnGenMedHistory.Click += new System.EventHandler(this.btnGenMedHistory_Click);
             // 
             // MedicationHistory
             // 
@@ -349,7 +357,7 @@
             this.Controls.Add(this.btnSelectPatient);
             this.Controls.Add(this.btnDemographics);
             this.Controls.Add(this.btnImmunizations);
-            this.Controls.Add(this.btnMedications);
+            this.Controls.Add(this.btnGenMedHistory);
             this.Controls.Add(this.groupBoxMedication);
             this.Controls.Add(this.lblPatientHeader);
             this.Controls.Add(this.dgvMedication);
@@ -392,7 +400,7 @@
         private System.Windows.Forms.Button btnSelectPatient;
         private System.Windows.Forms.Button btnDemographics;
         private System.Windows.Forms.Button btnImmunizations;
-        private System.Windows.Forms.Button btnMedications;
+        private System.Windows.Forms.Button btnGenMedHistory;
         private System.Windows.Forms.TextBox txtInstructions;
     }
 }

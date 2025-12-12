@@ -43,6 +43,8 @@ namespace DataAdapterEx.Views
             {
                 DataTable dt = DBUtilsGeneralMedicalHistory.GetByPatientId(conn, _patientId);
                 dgvHistory.DataSource = dt;
+                dgvHistory.Columns["GeneralMedicalHistoryID"].Visible = false;
+                dgvHistory.Columns["deleted"].Visible = false;
             }
             lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
             SetEditMode(false);
@@ -56,7 +58,7 @@ namespace DataAdapterEx.Views
             if (dgvHistory.SelectedRows.Count == 0) return;
 
             DataGridViewRow row = dgvHistory.SelectedRows[0];
-            _historyId = Convert.ToInt32(row.Cells["PatientID"].Value);
+            _historyId = Convert.ToInt32(row.Cells["GeneralMedicalHistoryID"].Value);
 
             txtMaritalStatus.Text = row.Cells["MaritalStatus"].Value.ToString();
             txtEducation.Text = row.Cells["Education"].Value.ToString();
@@ -142,7 +144,7 @@ namespace DataAdapterEx.Views
                         chkMensesNo.Checked,
                         txtMensesFreq.Text,
                         txtNotes.Text,
-                        GlobalData.LoggedInUserName
+                        txtHxBy.Text
                     );
                 }
                 else
@@ -171,7 +173,7 @@ namespace DataAdapterEx.Views
                         chkMensesNo.Checked,
                         txtMensesFreq.Text,
                         txtNotes.Text,
-                        GlobalData.LoggedInUserName
+                        txtHxBy.Text
                     );
                 }
             }
@@ -309,6 +311,7 @@ namespace DataAdapterEx.Views
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
             Form form = new Form1(this);
+            form.Show();
             this.Hide();
         }
 
@@ -318,11 +321,12 @@ namespace DataAdapterEx.Views
         //    this.Hide();
         //}
 
-        //private void btnMedications_Click(object sender, EventArgs e)
-        //{
-        //    Form form = new Form1(this);
-        //    this.Hide();
-        //}
+        private void btnMedications_Click(object sender, EventArgs e)
+        {
+            Form form = new Views.MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
+            form.Show();
+            this.Hide();
+        }
 
         //private void btnDemographics_Click(object sender, EventArgs e)
         //{

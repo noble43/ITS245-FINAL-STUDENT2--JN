@@ -13,7 +13,7 @@ namespace DataAdapterEx.DBUtils
         public static MySqlConnection MakeConnection()
         {
             //Home Password: toor
-            string connStr = "server=localhost;uid=root;pwd=password;database=patientdb;";
+            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             return conn;
@@ -22,8 +22,7 @@ namespace DataAdapterEx.DBUtils
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
-                "SELECT Medication" +
-                "FROM patientmedications " +
+                "SELECT * FROM patientmedications " +
                 "WHERE PatientID=@pid AND deleted=false";
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
@@ -56,8 +55,8 @@ namespace DataAdapterEx.DBUtils
             cmd.Parameters.AddWithValue("@amt", amount); 
             cmd.Parameters.AddWithValue("@unit", unit);
             cmd.Parameters.AddWithValue("@inst", instructions);
-            cmd.Parameters.AddWithValue("@start", instructions);
-            cmd.Parameters.AddWithValue("@end", instructions);
+            cmd.Parameters.AddWithValue("@start", StartDate);
+            cmd.Parameters.AddWithValue("@end", EndDate);
             cmd.Parameters.AddWithValue("@hcp", HCP);
             cmd.ExecuteNonQuery();
         }
@@ -119,7 +118,7 @@ namespace DataAdapterEx.DBUtils
         {
             string sql =
                 "UPDATE generalmedicalhistory SET " +
-                "medication=@med, MedicationAmt=@amt, MedicationUnit=@unit, " +
+                "Medication=@med, MedicationAmt=@amt, MedicationUnit=@unit, " +
                 "Instructions=@inst, MedicationStartDate=@start, MedicationEndDate=@end, PrescriptionHCP=@hcp" +
                 "WHERE MedicationID=@id";
 

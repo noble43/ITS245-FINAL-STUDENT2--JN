@@ -135,6 +135,7 @@ namespace DataAdapterEx
         {
             Form form = new Views.GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,6 +157,7 @@ namespace DataAdapterEx
         {
             Form form = new Views.MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
+            this.Hide();
         }
 
         //private void button1_Click(object sender, EventArgs e)

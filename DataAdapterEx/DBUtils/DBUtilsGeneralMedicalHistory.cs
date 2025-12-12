@@ -14,7 +14,7 @@ namespace DataAdapterEx.DBUtils
         public static MySqlConnection MakeConnection()
         {
             //Home Password: toor
-            string connStr = "server=localhost;uid=root;pwd=password;database=patientdb;";
+            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             return conn;
@@ -23,11 +23,7 @@ namespace DataAdapterEx.DBUtils
         public static DataTable GetByPatientId(MySqlConnection conn, int patientId)
         {
             string sql =
-                "SELECT PatientID, MaritalStatus, Education, BehavioralHistory, Tobacco, " +
-                "TobaccoQuantity, TobaccoDuraton, Alcohol, AlcoholQuantity, AlcoholDuration, " +
-                "Drug, DrugType, DrugDuration, Dietary, BloodType, Rh, NumberOfChildren, LMPStatus, " +
-                "MensesMonthlyYes, MensesMonthlyNo, MensesFreq, MedicalHistoryNotes, HxObtainedBy " +
-                "FROM generalmedicalhistory " +
+                "SELECT * FROM generalmedicalhistory " +
                 "WHERE PatientID=@pid AND deleted=false";
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

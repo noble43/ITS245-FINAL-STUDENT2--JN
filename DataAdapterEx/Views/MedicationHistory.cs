@@ -43,6 +43,15 @@ namespace DataAdapterEx.Views
             {
                 DataTable dt = DBUtilsMedicationHistory.GetByPatientId(conn, _patientId);
                 dgvMedication.DataSource = dt;
+                dgvMedication.Columns["MedicationID"].Visible = false;
+                dgvMedication.Columns["PatientID"].Visible = false;
+                dgvMedication.Columns["MedicationAmt"].Visible = false;
+                dgvMedication.Columns["MedicationUnit"].Visible = false;
+                dgvMedication.Columns["Instructions"].Visible = false;
+                dgvMedication.Columns["MedicationStartDate"].Visible = false;
+                dgvMedication.Columns["MedicationEndDate"].Visible = false;
+                dgvMedication.Columns["PrescriptionHCP"].Visible = false;
+                dgvMedication.Columns["deleted"].Visible = false;
             }
             lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
             SetEditMode(false);
@@ -56,8 +65,7 @@ namespace DataAdapterEx.Views
             if (dgvMedication.SelectedRows.Count == 0) return;
 
             DataGridViewRow row = dgvMedication.SelectedRows[0];
-
-            _medicationId = Convert.ToInt32(row.Cells["PrescriptionID"].Value);
+            _medicationId = Convert.ToInt32(row.Cells["MedicationID"].Value);
 
             txtMedication.Text = row.Cells["Medication"].Value.ToString();
             txtAmount.Text = row.Cells["MedicationAmt"].Value.ToString();
@@ -250,6 +258,7 @@ namespace DataAdapterEx.Views
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
             Form form = new Form1(this);
+            form.Show();
             this.Hide();
         }
 
@@ -261,7 +270,8 @@ namespace DataAdapterEx.Views
 
         private void btnGenMedHistory_Click(object sender, EventArgs e)
         {
-            Form form = new Form1(this);
+            Form form = new Views.GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
+            form.Show();
             this.Hide();
         }
 

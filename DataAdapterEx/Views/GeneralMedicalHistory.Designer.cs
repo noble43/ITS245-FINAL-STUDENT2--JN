@@ -631,6 +631,7 @@
             this.btnMedications.TabIndex = 10;
             this.btnMedications.Text = "Medications";
             this.btnMedications.UseVisualStyleBackColor = false;
+            this.btnMedications.Click += new System.EventHandler(this.btnMedications_Click);
             // 
             // lblPatientIDSelect
             // 

@@ -14,7 +14,7 @@ namespace DataAdapterEx.DBUtils
         public static MySqlConnection MakeConnection()
         {
             //Home Password: toor
-            string connStr = "server=localhost;uid=root;pwd=password;database=patientdb;";
+            string connStr = "server=localhost;uid=root;pwd=toor;database=patientdb;";
             MySqlConnection conn = new MySqlConnection(connStr);
             return conn;
         }
