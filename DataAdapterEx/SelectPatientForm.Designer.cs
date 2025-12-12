@@ -37,6 +37,7 @@
             this.btnGenMedHistory = new System.Windows.Forms.Button();
             this.btnMedicationsHistory = new System.Windows.Forms.Button();
             this.btnImmunizationHistory = new System.Windows.Forms.Button();
+            this.btnPatientReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Patients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,12 +135,24 @@
             this.btnImmunizationHistory.UseVisualStyleBackColor = true;
             this.btnImmunizationHistory.Click += new System.EventHandler(this.btn_btnImmunizations_Click);
             // 
+            // btnPatientReport
+            // 
+            this.btnPatientReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPatientReport.Location = new System.Drawing.Point(608, 165);
+            this.btnPatientReport.Name = "btnPatientReport";
+            this.btnPatientReport.Size = new System.Drawing.Size(180, 23);
+            this.btnPatientReport.TabIndex = 9;
+            this.btnPatientReport.Text = "Get Patient Report";
+            this.btnPatientReport.UseVisualStyleBackColor = true;
+            this.btnPatientReport.Click += new System.EventHandler(this.btn_btnPatientReport_Click);
+            // 
             // SelectPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPatientReport);
             this.Controls.Add(this.btnImmunizationHistory);
             this.Controls.Add(this.btnMedicationsHistory);
             this.Controls.Add(this.btnGenMedHistory);
@@ -167,6 +180,7 @@
         private System.Windows.Forms.Button btnGenMedHistory;
         private System.Windows.Forms.Button btnMedicationsHistory;
         private System.Windows.Forms.Button btnImmunizationHistory;
+        private System.Windows.Forms.Button btnPatientReport;
     }
 }
 

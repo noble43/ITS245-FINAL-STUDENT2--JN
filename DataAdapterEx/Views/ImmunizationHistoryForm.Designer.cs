@@ -297,6 +297,7 @@
             this.btnGenMedHistory.TabIndex = 32;
             this.btnGenMedHistory.Text = "Medical History";
             this.btnGenMedHistory.UseVisualStyleBackColor = true;
+            this.btnGenMedHistory.Click += new System.EventHandler(this.btn_btnGenMedHistory_Click);
             // 
             // btnMedicationsHistory
             // 
@@ -308,6 +309,7 @@
             this.btnMedicationsHistory.TabIndex = 33;
             this.btnMedicationsHistory.Text = "Medication History";
             this.btnMedicationsHistory.UseVisualStyleBackColor = true;
+            this.btnMedicationsHistory.Click += new System.EventHandler(this.btn_Medications_Click);
             // 
             // ImmunizationHistoryForm
             // 

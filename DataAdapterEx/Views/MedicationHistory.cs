@@ -1,4 +1,5 @@
 ﻿using DataAdapterEx.DBUtils;
+using DataAdapterEx.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace DataAdapterEx.Views
         public MedicationHistory(int patientId, string patientName, int patientAge)
         {
             InitializeComponent();
+            //Added Student 1 FileLog by JN
+            FileLog.Write("Opened Medication History Form");
             _patientId = patientId;
             _patientName = patientName;
             _patientAge = patientAge;

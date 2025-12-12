@@ -11,6 +11,8 @@ using MySql.Data.MySqlClient;
 using DataAdapterEx.DBUtils;
 using DataAdapterEx.Models;
 using DataAdapterEx.Views;
+//Added DataAdapterEx.Views by JN
+//AddedDataAdaperEx.Models by JN
 
 namespace DataAdapterEx.Views
 {

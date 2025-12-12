@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAdapterEx.Models;
 using DataAdapterEx.Views;
+//Added DataAdapterEx.Views by JN
+//AddedDataAdaperEx.Models by JN
 
 namespace DataAdapterEx.Views
 {

@@ -11,6 +11,8 @@ using MySql.Data.MySqlClient;
 using DataAdapterEx.DBUtils;
 using DataAdapterEx.Models;
 using DataAdapterEx.Views;
+//Added DataAdapterEx.Views by JN
+//AddedDataAdaperEx.Models by JN
 
 namespace DataAdapterEx
 {
@@ -103,6 +105,23 @@ namespace DataAdapterEx
             form.ShowDialog();
 
             LoadPatients(); // refreshs list
+        }
+
+        //Patient Report button added by JN
+        private void btn_btnPatientReport_Click(object sender, EventArgs e)
+        {
+            if (dgv_Patients.CurrentRow != null)
+            {
+                int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
+                FileLog.Write("Generated Patient Report for Patient ID " + patientID);
+                PatientReport report = new PatientReport();
+                report.GenerateReport(patientID, GlobalData.LoggedInUserName);
+                MessageBox.Show("Patient report generated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient first.");
+            }
         }
 
         //Nav buttons added by JN

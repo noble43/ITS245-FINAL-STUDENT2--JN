@@ -25,6 +25,8 @@ namespace DataAdapterEx.Views
         public GeneralMedicalHistory(int patientId, string patientName, int patientAge)
         {
             InitializeComponent();
+            //Added Student 1 FileLog by JN
+            FileLog.Write("Opened General Medical History Form");
             _patientId = patientId;
             _patientName = patientName;
             _patientAge = patientAge;
