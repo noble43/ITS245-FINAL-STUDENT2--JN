@@ -93,6 +93,19 @@ namespace DataAdapterEx.Views
         // ============================
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // CHECK IF PATIENT ALREADY HAS A HISTORY RECORD
+            if (PatientHasGeneralHistory(_patientId))
+            {
+                MessageBox.Show(
+                    "This patient already has a General Medical History record.\nOnly one record is allowed.",
+                    "Please modify the existing History instead.",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return; // Stop Add operation
+            }
+
+            // OTHERWISE, ENTER ADD MODE
             _isAddMode = true;
             _historyId = -1;
             ClearFields();
@@ -271,6 +284,20 @@ namespace DataAdapterEx.Views
                 }
             }
         }
+        private bool PatientHasGeneralHistory(int patientId)
+        {
+            using (MySqlConnection conn = DBUtilsGeneralMedicalHistory.MakeConnection())
+            {
+                string sql = "SELECT COUNT(*) FROM general_medical_history WHERE PatientID = @pid AND deleted = 0";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@pid", patientId);
+                    conn.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
 
         private void btnPatientIDSelect_Click(object sender, EventArgs e)
         {
@@ -320,6 +347,7 @@ namespace DataAdapterEx.Views
         private void btnImmunizations_Click(object sender, EventArgs e)
         {
             Form form = new ImmunizationHistoryForm(_patientId);
+            form.Show();
             this.Hide();
         }
 
@@ -332,7 +360,7 @@ namespace DataAdapterEx.Views
 
         private void btnDemographics_Click(object sender, EventArgs e)
         {
-            Form form = new PatientDemographicsForm();
+            Form form = new PatientDemographicsForm(_patientId);
             form.Show();
             this.Hide();
         }
