@@ -308,6 +308,7 @@
             this.btnSelectPatient.TabIndex = 50;
             this.btnSelectPatient.Text = "Select Patient";
             this.btnSelectPatient.UseVisualStyleBackColor = false;
+            this.btnSelectPatient.Click += new System.EventHandler(this.btnSelectPatient_Click);
             // 
             // btnDemographics
             // 

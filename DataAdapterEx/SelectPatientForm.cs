@@ -107,16 +107,16 @@ namespace DataAdapterEx
             LoadPatients(); // refreshs list
         }
 
-        //Patient Report button added by JN
+        //Patient Report button added by JN + FileLog integration
         private void btn_btnPatientReport_Click(object sender, EventArgs e)
         {
             if (dgv_Patients.CurrentRow != null)
             {
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
-                FileLog.Write("Generated Patient Report for Patient ID " + patientID);
+
+                FileLog.Write($"Generated Patient Report for Patient ID {patientID} by {GlobalData.LoggedInUserName}");
                 PatientReport report = new PatientReport();
                 report.GenerateReport(patientID, GlobalData.LoggedInUserName);
-                MessageBox.Show("Patient report generated successfully.");
             }
             else
             {
@@ -124,14 +124,15 @@ namespace DataAdapterEx
             }
         }
 
-        //Nav buttons added by JN
+        //Nav buttons added by JN + FileLog integration
         private void btn_btnGenMedHistory_Click(object sender, EventArgs e)
         {
             if (dgv_Patients.CurrentRow != null)
             {
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
+                GlobalData.CurrentPatientID = patientID;
 
-                FileLog.Write("Opened General Medical History Form for Patient ID " + patientID);
+                FileLog.Write($"Opened General Medical History Form for Patient ID {patientID} by {GlobalData.LoggedInUserID}");
 
                 Form form = new GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
                 form.Show();
@@ -148,8 +149,9 @@ namespace DataAdapterEx
             if (dgv_Patients.CurrentRow != null)
             {
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
+                GlobalData.CurrentPatientID = patientID;
 
-                FileLog.Write("Opened General Immunization History Form for Patient ID " + patientID);
+                FileLog.Write($"Opened Immunizations History Form for Patient ID {patientID} by {GlobalData.LoggedInUserID}");
 
                 Form form = new ImmunizationHistoryForm(patientID);
                 form.Show();
@@ -166,8 +168,9 @@ namespace DataAdapterEx
             if (dgv_Patients.CurrentRow != null)
             {
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
+                GlobalData.CurrentPatientID = patientID;
 
-                FileLog.Write("Opened General Medical History Form for Patient ID " + patientID);
+                FileLog.Write($"Opened Medication History Form for Patient ID {patientID} by {GlobalData.LoggedInUserID}");
 
                 Form form = new MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
                 form.Show();

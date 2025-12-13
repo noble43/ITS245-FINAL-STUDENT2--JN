@@ -14,7 +14,7 @@ namespace DataAdapterEx.Models
     public class PatientReport
     {
         //Home Password: toor
-        private string connectionString = "server=localhost;database=patientdb;uid=root;pwd=password;";
+        private string connectionString = "server=localhost;database=patientdb;uid=root;pwd=toor;";
 
         /// <summary>
         /// Generates a text report for the patient with the given PatientID.
@@ -145,13 +145,13 @@ namespace DataAdapterEx.Models
                     string fileName = $"PatientReport_{patientID}_{DateTime.Now:yyyyMMddHHmmss}.txt";
                     string filePath = Path.Combine(reportsFolder, fileName);
 
-                    // ✅ Write file
+                    // Write file
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
                         writer.Write(reportContent);
                     }
 
-                    // ✅ Open the file automatically
+                    // Open the file automatically
                     try
                     {
                         Process.Start(filePath);
@@ -161,14 +161,14 @@ namespace DataAdapterEx.Models
                         MessageBox.Show("Could not open the report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    // ✅ Confirm
+                    // Confirm
                     MessageBox.Show($"Report saved to:\n{filePath}", "Report Created");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "❌ ERROR generating report:\n\n" + ex.Message,"Report Failure", MessageBoxButtons.OK, MessageBoxIcon.Error
+                    "ERROR generating report:\n\n" + ex.Message,"Report Failure", MessageBoxButtons.OK, MessageBoxIcon.Error
                 );
             }
         }
