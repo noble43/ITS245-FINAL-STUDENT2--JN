@@ -85,7 +85,7 @@
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(26, 149);
+            this.lblEndDate.Location = new System.Drawing.Point(26, 136);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(52, 13);
             this.lblEndDate.TabIndex = 40;
@@ -94,7 +94,7 @@
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(26, 119);
+            this.lblStartDate.Location = new System.Drawing.Point(26, 110);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(55, 13);
             this.lblStartDate.TabIndex = 39;
@@ -112,7 +112,7 @@
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(26, 88);
+            this.lblUnit.Location = new System.Drawing.Point(26, 84);
             this.lblUnit.Name = "lblUnit";
             this.lblUnit.Size = new System.Drawing.Size(26, 13);
             this.lblUnit.TabIndex = 37;
@@ -130,7 +130,7 @@
             // lblMedication
             // 
             this.lblMedication.AutoSize = true;
-            this.lblMedication.Location = new System.Drawing.Point(26, 28);
+            this.lblMedication.Location = new System.Drawing.Point(26, 32);
             this.lblMedication.Name = "lblMedication";
             this.lblMedication.Size = new System.Drawing.Size(59, 13);
             this.lblMedication.TabIndex = 35;
@@ -138,7 +138,7 @@
             // 
             // txtMedication
             // 
-            this.txtMedication.Location = new System.Drawing.Point(103, 25);
+            this.txtMedication.Location = new System.Drawing.Point(103, 29);
             this.txtMedication.Name = "txtMedication";
             this.txtMedication.Size = new System.Drawing.Size(113, 20);
             this.txtMedication.TabIndex = 29;
@@ -152,21 +152,21 @@
             // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(87, 85);
+            this.txtUnit.Location = new System.Drawing.Point(87, 81);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(113, 20);
             this.txtUnit.TabIndex = 31;
             // 
             // txtStartDate
             // 
-            this.txtStartDate.Location = new System.Drawing.Point(103, 116);
+            this.txtStartDate.Location = new System.Drawing.Point(103, 107);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(113, 20);
             this.txtStartDate.TabIndex = 33;
             // 
             // txtEndDate
             // 
-            this.txtEndDate.Location = new System.Drawing.Point(103, 146);
+            this.txtEndDate.Location = new System.Drawing.Point(103, 133);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(113, 20);
             this.txtEndDate.TabIndex = 34;
@@ -203,7 +203,7 @@
             // 
             // txtHCP
             // 
-            this.txtHCP.Location = new System.Drawing.Point(124, 170);
+            this.txtHCP.Location = new System.Drawing.Point(124, 159);
             this.txtHCP.Name = "txtHCP";
             this.txtHCP.Size = new System.Drawing.Size(113, 20);
             this.txtHCP.TabIndex = 42;
@@ -211,7 +211,7 @@
             // lblHCP
             // 
             this.lblHCP.AutoSize = true;
-            this.lblHCP.Location = new System.Drawing.Point(26, 173);
+            this.lblHCP.Location = new System.Drawing.Point(26, 162);
             this.lblHCP.Name = "lblHCP";
             this.lblHCP.Size = new System.Drawing.Size(87, 13);
             this.lblHCP.TabIndex = 41;
@@ -302,9 +302,9 @@
             // btnSelectPatient
             // 
             this.btnSelectPatient.BackColor = System.Drawing.Color.Azure;
-            this.btnSelectPatient.Location = new System.Drawing.Point(444, 306);
+            this.btnSelectPatient.Location = new System.Drawing.Point(426, 306);
             this.btnSelectPatient.Name = "btnSelectPatient";
-            this.btnSelectPatient.Size = new System.Drawing.Size(114, 23);
+            this.btnSelectPatient.Size = new System.Drawing.Size(123, 23);
             this.btnSelectPatient.TabIndex = 50;
             this.btnSelectPatient.Text = "Select Patient";
             this.btnSelectPatient.UseVisualStyleBackColor = false;
@@ -313,33 +313,33 @@
             // btnDemographics
             // 
             this.btnDemographics.BackColor = System.Drawing.Color.Azure;
-            this.btnDemographics.Location = new System.Drawing.Point(444, 336);
+            this.btnDemographics.Location = new System.Drawing.Point(426, 336);
             this.btnDemographics.Name = "btnDemographics";
-            this.btnDemographics.Size = new System.Drawing.Size(114, 23);
+            this.btnDemographics.Size = new System.Drawing.Size(123, 23);
             this.btnDemographics.TabIndex = 51;
-            this.btnDemographics.Text = "Demographics";
+            this.btnDemographics.Text = "Patient Demographics";
             this.btnDemographics.UseVisualStyleBackColor = false;
             this.btnDemographics.Click += new System.EventHandler(this.btnDemographics_Click);
             // 
             // btnImmunizations
             // 
             this.btnImmunizations.BackColor = System.Drawing.Color.Azure;
-            this.btnImmunizations.Location = new System.Drawing.Point(564, 306);
+            this.btnImmunizations.Location = new System.Drawing.Point(555, 306);
             this.btnImmunizations.Name = "btnImmunizations";
-            this.btnImmunizations.Size = new System.Drawing.Size(114, 23);
+            this.btnImmunizations.Size = new System.Drawing.Size(123, 23);
             this.btnImmunizations.TabIndex = 52;
-            this.btnImmunizations.Text = "Immunizations";
+            this.btnImmunizations.Text = "Immunization History";
             this.btnImmunizations.UseVisualStyleBackColor = false;
             this.btnImmunizations.Click += new System.EventHandler(this.btnImmunizations_Click);
             // 
             // btnGenMedHistory
             // 
             this.btnGenMedHistory.BackColor = System.Drawing.Color.Azure;
-            this.btnGenMedHistory.Location = new System.Drawing.Point(564, 336);
+            this.btnGenMedHistory.Location = new System.Drawing.Point(555, 336);
             this.btnGenMedHistory.Name = "btnGenMedHistory";
-            this.btnGenMedHistory.Size = new System.Drawing.Size(114, 23);
+            this.btnGenMedHistory.Size = new System.Drawing.Size(123, 23);
             this.btnGenMedHistory.TabIndex = 53;
-            this.btnGenMedHistory.Text = "General History";
+            this.btnGenMedHistory.Text = "Medical History";
             this.btnGenMedHistory.UseVisualStyleBackColor = false;
             this.btnGenMedHistory.Click += new System.EventHandler(this.btnGenMedHistory_Click);
             // 

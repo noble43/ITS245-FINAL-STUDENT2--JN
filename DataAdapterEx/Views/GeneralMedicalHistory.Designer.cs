@@ -594,9 +594,9 @@
             // btnSelectPatient
             // 
             this.btnSelectPatient.BackColor = System.Drawing.Color.Azure;
-            this.btnSelectPatient.Location = new System.Drawing.Point(516, 478);
+            this.btnSelectPatient.Location = new System.Drawing.Point(484, 478);
             this.btnSelectPatient.Name = "btnSelectPatient";
-            this.btnSelectPatient.Size = new System.Drawing.Size(114, 23);
+            this.btnSelectPatient.Size = new System.Drawing.Size(130, 23);
             this.btnSelectPatient.TabIndex = 7;
             this.btnSelectPatient.Text = "Select Patient";
             this.btnSelectPatient.UseVisualStyleBackColor = false;
@@ -605,33 +605,33 @@
             // btnDemographics
             // 
             this.btnDemographics.BackColor = System.Drawing.Color.Azure;
-            this.btnDemographics.Location = new System.Drawing.Point(516, 508);
+            this.btnDemographics.Location = new System.Drawing.Point(484, 508);
             this.btnDemographics.Name = "btnDemographics";
-            this.btnDemographics.Size = new System.Drawing.Size(114, 23);
+            this.btnDemographics.Size = new System.Drawing.Size(130, 23);
             this.btnDemographics.TabIndex = 8;
-            this.btnDemographics.Text = "Demographics";
+            this.btnDemographics.Text = "Patient Demographics";
             this.btnDemographics.UseVisualStyleBackColor = false;
             this.btnDemographics.Click += new System.EventHandler(this.btnDemographics_Click);
             // 
             // btnImmunizations
             // 
             this.btnImmunizations.BackColor = System.Drawing.Color.Azure;
-            this.btnImmunizations.Location = new System.Drawing.Point(636, 478);
+            this.btnImmunizations.Location = new System.Drawing.Point(620, 478);
             this.btnImmunizations.Name = "btnImmunizations";
-            this.btnImmunizations.Size = new System.Drawing.Size(114, 23);
+            this.btnImmunizations.Size = new System.Drawing.Size(130, 23);
             this.btnImmunizations.TabIndex = 9;
-            this.btnImmunizations.Text = "Immunizations";
+            this.btnImmunizations.Text = "Immunization History";
             this.btnImmunizations.UseVisualStyleBackColor = false;
             this.btnImmunizations.Click += new System.EventHandler(this.btnImmunizations_Click);
             // 
             // btnMedications
             // 
             this.btnMedications.BackColor = System.Drawing.Color.Azure;
-            this.btnMedications.Location = new System.Drawing.Point(636, 508);
+            this.btnMedications.Location = new System.Drawing.Point(620, 508);
             this.btnMedications.Name = "btnMedications";
-            this.btnMedications.Size = new System.Drawing.Size(114, 23);
+            this.btnMedications.Size = new System.Drawing.Size(130, 23);
             this.btnMedications.TabIndex = 10;
-            this.btnMedications.Text = "Medications";
+            this.btnMedications.Text = "Medication History";
             this.btnMedications.UseVisualStyleBackColor = false;
             this.btnMedications.Click += new System.EventHandler(this.btnMedications_Click);
             // 
