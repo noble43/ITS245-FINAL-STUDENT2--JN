@@ -331,7 +331,11 @@ namespace DataAdapterEx.Views
                 MessageBox.Show("No patient selected.");
                 return;
             }
-            FileLog.Write($"Opened Medication Form for PatientID {patientID}");
+
+            GlobalData.CurrentPatientID = patientID;
+            DBUtilsMedicationHistory.LoadPatientInfo(GlobalData.CurrentPatientID);
+
+            FileLog.Write($"Opened Medication Form for PatientID {patientID} by UserID: {GlobalData.LoggedInUserID}");
             Form form = new MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
             this.Hide();
@@ -344,7 +348,11 @@ namespace DataAdapterEx.Views
                 MessageBox.Show("No patient selected.");
                 return;
             }
-            FileLog.Write($"Opened General Medical History Form for PatientID {patientID}");
+
+            GlobalData.CurrentPatientID = patientID;
+            DBUtilsGeneralMedicalHistory.LoadPatientInfo(GlobalData.CurrentPatientID);
+
+            FileLog.Write($"Opened General Medical History Form for PatientID {patientID} by UserID: {GlobalData.LoggedInUserID}");
             Form form = new GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
             this.Hide();

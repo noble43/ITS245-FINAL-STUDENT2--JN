@@ -132,6 +132,8 @@ namespace DataAdapterEx
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
                 GlobalData.CurrentPatientID = patientID;
 
+                DBUtilsGeneralMedicalHistory.LoadPatientInfo(patientID);
+
                 FileLog.Write($"Opened General Medical History Form for Patient ID {patientID} by {GlobalData.LoggedInUserID}");
 
                 Form form = new GeneralMedicalHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
@@ -169,6 +171,8 @@ namespace DataAdapterEx
             {
                 int patientID = Convert.ToInt32(dgv_Patients.CurrentRow.Cells["PatientID"].Value);
                 GlobalData.CurrentPatientID = patientID;
+
+                DBUtilsMedicationHistory.LoadPatientInfo(patientID);
 
                 FileLog.Write($"Opened Medication History Form for Patient ID {patientID} by {GlobalData.LoggedInUserID}");
 

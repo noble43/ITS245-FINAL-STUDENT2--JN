@@ -29,7 +29,7 @@ namespace DataAdapterEx.Models
                     conn.Open();
 
                     // Retrieve patient demographics
-                    string demographicsQuery = @"SELECT * FROM patientdemographics WHERE PatientID = @PatientID";
+                    string demographicsQuery = @"SELECT * FROM patientdemographics WHERE PatientID = @PatientID AND deleted = 0";
                     MySqlCommand cmdDemographics = new MySqlCommand(demographicsQuery, conn);
                     cmdDemographics.Parameters.AddWithValue("@PatientID", patientID);
 
@@ -51,7 +51,7 @@ namespace DataAdapterEx.Models
                     reader.Close();
 
                     // Retrieve patient medical history
-                    string historyQuery = @"SELECT * FROM generalmedicalhistory WHERE PatientID = @PatientID";
+                    string historyQuery = @"SELECT * FROM generalmedicalhistory WHERE PatientID = @PatientID AND deleted = 0";
                     MySqlCommand cmdHistory = new MySqlCommand(historyQuery, conn);
                     cmdHistory.Parameters.AddWithValue("@PatientID", patientID);
 
@@ -75,7 +75,7 @@ namespace DataAdapterEx.Models
                     historyReader.Close();
 
                     // Retrieve immunizations history
-                    string immunizationsQuery = @"SELECT * FROM immunizationshistorytable WHERE PatientID = @PatientID";
+                    string immunizationsQuery = @"SELECT * FROM immunizationshistorytable WHERE PatientID = @PatientID AND deleted = 0";
                     MySqlCommand cmdImmunizations = new MySqlCommand(immunizationsQuery, conn);
                     cmdImmunizations.Parameters.AddWithValue("@PatientID", patientID);
 
@@ -92,7 +92,7 @@ namespace DataAdapterEx.Models
                     immunizationReader.Close();
 
                     // Retrieve medication history
-                    string medicationQuery = @"SELECT * FROM patientmedications WHERE PatientID = @PatientID";
+                    string medicationQuery = @"SELECT * FROM patientmedications WHERE PatientID = @PatientID AND deleted = 0";
                     MySqlCommand cmdMedication = new MySqlCommand(medicationQuery, conn);
                     cmdMedication.Parameters.AddWithValue("@PatientID", patientID);
 

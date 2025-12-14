@@ -49,7 +49,7 @@ namespace DataAdapterEx.Views
                 dgvHistory.Columns["deleted"].Visible = false;
             }
 
-            FileLog.Write($"Loaded General Medical History record for Patient ID {_patientId} by {GlobalData.LoggedInUserID}");
+            FileLog.Write($"Loaded General Medical History record for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             lblPatientHeader.Text = $"{_patientName} | Age: {_patientAge} ";
             SetEditMode(false);
         }
@@ -107,7 +107,7 @@ namespace DataAdapterEx.Views
                 return; // Stop Add operation
             }
 
-            FileLog.Write($"Entered Add mode on General Medical History form for Patient ID {_patientId} by {GlobalData.LoggedInUserName}");
+            FileLog.Write($"Entered Add mode on General Medical History form for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             // OTHERWISE, ENTER ADD MODE
             _isAddMode = true;
             _historyId = -1;
@@ -126,7 +126,7 @@ namespace DataAdapterEx.Views
                 return;
             }
 
-            FileLog.Write($"Entered Modify mode on General Medical History form for Patient ID {_patientId} by {GlobalData.LoggedInUserName}");
+            FileLog.Write($"Entered Modify mode on General Medical History form for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             _isAddMode = false;
             SetEditMode(true);
         }
@@ -198,7 +198,7 @@ namespace DataAdapterEx.Views
                 }
             }
 
-            FileLog.Write($"Saved General Medical History record for Patient ID {_patientId} by {GlobalData.LoggedInUserName}");
+            FileLog.Write($"Saved General Medical History record for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             ClearFields();
             LoadHistory();
         }
@@ -222,7 +222,7 @@ namespace DataAdapterEx.Views
                 DBUtilsGeneralMedicalHistory.DeleteHistory(conn, _historyId);
             }
 
-            FileLog.Write($"Deleted General Medical History record for Patient ID {_patientId} by {GlobalData.LoggedInUserName}");
+            FileLog.Write($"Deleted General Medical History record for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             LoadHistory();
         }
 
@@ -231,7 +231,7 @@ namespace DataAdapterEx.Views
         // ============================
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            FileLog.Write($"Undid changes on General Medical History form for Patient ID {_patientId} by {GlobalData.LoggedInUserName}");
+            FileLog.Write($"Undid changes on General Medical History form for Patient ID {_patientId} by UserID: {GlobalData.LoggedInUserID}");
             LoadHistory();
         }
 
@@ -297,11 +297,10 @@ namespace DataAdapterEx.Views
         {
             using (MySqlConnection conn = DBUtilsGeneralMedicalHistory.MakeConnection())
             {
-                string sql = "SELECT COUNT(*) FROM general_medical_history WHERE PatientID = @pid AND deleted = 0";
+                string sql = "SELECT COUNT(*) FROM generalmedicalhistory WHERE PatientID = @pid AND deleted = 0";
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@pid", patientId);
-                    conn.Open();
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }
@@ -348,7 +347,7 @@ namespace DataAdapterEx.Views
         // ============================
         private void btnSelectPatient_Click(object sender, EventArgs e)
         {
-            FileLog.Write($"Opened Patient Selection Form by {GlobalData.LoggedInUserID}");
+            FileLog.Write($"Opened Patient Selection Form by UserID: {GlobalData.LoggedInUserID}");
 
             Form form = new SelectPatientForm();
             form.Show();
@@ -357,7 +356,7 @@ namespace DataAdapterEx.Views
 
         private void btnImmunizations_Click(object sender, EventArgs e)
         {
-            FileLog.Write($"Opened Immunization History Form for Patient ID {GlobalData.CurrentPatientID} by {GlobalData.LoggedInUserID}");
+            FileLog.Write($"Opened Immunization History Form for Patient ID {GlobalData.CurrentPatientID} by UserID: {GlobalData.LoggedInUserID}");
 
             Form form = new ImmunizationHistoryForm(GlobalData.CurrentPatientID);
             form.Show();
@@ -366,7 +365,7 @@ namespace DataAdapterEx.Views
 
         private void btnMedications_Click(object sender, EventArgs e)
         {
-            FileLog.Write($"Opened Medication History Form for Patient ID {GlobalData.CurrentPatientID} by {GlobalData.LoggedInUserID}");
+            FileLog.Write($"Opened Medication History Form for Patient ID {GlobalData.CurrentPatientID} by UserID: {GlobalData.LoggedInUserID}");
 
             Form form = new MedicationHistory(GlobalData.CurrentPatientID, GlobalData.CurrentPatientFullName, GlobalData.CurrentPatientAge);
             form.Show();
@@ -375,7 +374,7 @@ namespace DataAdapterEx.Views
 
         private void btnDemographics_Click(object sender, EventArgs e)
         {
-            FileLog.Write($"Opened Patient Demographics Form for Patient ID {GlobalData.CurrentPatientID} by {GlobalData.LoggedInUserID}");
+            FileLog.Write($"Opened Patient Demographics Form for Patient ID {GlobalData.CurrentPatientID} by UserID: {GlobalData.LoggedInUserID}");
 
             Form form = new PatientDemographicsForm(GlobalData.CurrentPatientID);
             form.Show();

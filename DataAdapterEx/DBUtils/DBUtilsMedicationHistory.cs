@@ -67,7 +67,7 @@ namespace DataAdapterEx.DBUtils
             {
                 string query = @"SELECT PtFirstName, PtLastName, PtMiddleInitial, DOB 
                          FROM patientdemographics 
-                         WHERE PatientID = @id";
+                         WHERE PatientID = @id AND deleted = 0";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -119,13 +119,14 @@ namespace DataAdapterEx.DBUtils
             string sql =
                 "UPDATE generalmedicalhistory SET " +
                 "Medication=@med, MedicationAmt=@amt, MedicationUnit=@unit, " +
-                "Instructions=@inst, MedicationStartDate=@start, MedicationEndDate=@end, PrescriptionHCP=@hcp" +
-                "WHERE MedicationID=@id";
+                "Instructions=@inst, MedicationStartDate=@start, MedicationEndDate=@end, PrescriptionHCP=@hcp " +
+                "WHERE MedicationID=@mid";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@id", medicationID);
+            cmd.Parameters.AddWithValue("@mid", medicationID);
 
+            cmd.Parameters.AddWithValue("@med", medication);
             cmd.Parameters.AddWithValue("@amt", amount);
             cmd.Parameters.AddWithValue("@unit", unit);
             cmd.Parameters.AddWithValue("@inst", instructions);
